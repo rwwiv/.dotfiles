@@ -56,10 +56,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH
 
 # Go vars
-export GOPATH=$HOME/golang
+export GOPATH="$HOME/golang"
 export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/binexport
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOROOT/binexport"
 
 # Python2 pip
 export PATH="$PATH:"/Users/rwwiv/Library/Python/2*/bin
@@ -99,7 +99,8 @@ _evalcache "starship" "init" "zsh"
 # misc
 export PATH="$PATH:/usr/local/sbin"
 
-# sed
+# gnu tools
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # homebrew
@@ -140,5 +141,6 @@ minify_img () {
     magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
 }
 
-# END, to export $PATH
+# KEEP AT END
+# export any unexported $PATH stuff
 typeset -U PATH
