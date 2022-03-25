@@ -33,7 +33,7 @@ read -rsp "Print init checklist? " print_init_checklist && echo ""
 
 if [ "$print_init_checklist" = "yes" ] || [ "$print_init_checklist" == "y" ]; then
     printf "%s\n" \
-        "Checklist" \
+        "Pre-install Checklist" \
         " - [ ] Export gpg key from old machine" \
         " - [ ] Export ssh keys from old machine "
         
@@ -91,7 +91,7 @@ read -rsp "Print ending checklist? " print_end_checklist && echo ""
 
 if [ "$print_end_checklist" = "yes" ] || [ "$print_end_checklist" == "y" ]; then
     printf "%s\n" \
-        "Checklist" \
+        "Post-install Checklist" \
         " - [ ] Set up sync in vscode" \
         " - [ ] Log in to Chrome " \
         " - [ ] Log in to Bear"
