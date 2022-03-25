@@ -2,6 +2,7 @@
 
 dotfiles_dir="$HOME/.dotfiles"
 notice_title=".dotfiles init"
+init_log="$dotfiles_dir/init.log"
 
 # check for root
 uid="$(id -u)"
@@ -27,7 +28,7 @@ notice() {
 }
 
 # begin script
-printf '%s\n' "hi - はじめ まして" ""
+printf '%s\n' "hi - はじめ まして" "" >> "$init_log" 2>&1
 
 read -rsp "Print init checklist? " print_init_checklist && echo ""
 
@@ -39,21 +40,27 @@ if [ "$print_init_checklist" = "yes" ] || [ "$print_init_checklist" == "y" ]; th
         
 fi
 
+echo "Running..."
+
+# UI
+defaults write com.apple.finder CreateDesktop false
+killall Finder
+
 # brew
-NONINTERACTIVE=1 which -s brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+NONINTERACTIVE=1 which -s brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> "$init_log" 2>&1
 
 # iterm2
 [ -f "$HOME/.hushlogin" ] || touch "$HOME/.hushlogin"
 
 # mackup
 cp ./mackup/.mackup.cfg "$HOME/.mackup.cfg"
-mackup restore
+mackup restore >> "$init_log" 2>&1
 
 # config
 cp -r ./config/{.,}* "$HOME/.config"
 
 # zsh
-[ "$ZSH" = "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+[ "$ZSH" = "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >> "$init_log" 2>&1
 mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
 ln -s "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
 
@@ -66,6 +73,8 @@ fi
 ln -s "$dotfiles_dir/ssh/.config" "$HOME/.ssh/config"
 
 # git
+printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig"
+
 notice "$notice_title" "Ready for gpg key import"
 echo "Import gpg key now"
 read -n1 -rsp $'Press key to continue...\n'
@@ -75,11 +84,6 @@ read -rsp "Enter gpg key fingerprint: " git_gpg_fp && echo ""
 git config --global user.email "$git_email"
 git config --global user.name "$git_name"
 git config --global user.signingKey "$git_gpg_fp"
-printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig"
-
-# UI
-defaults write com.apple.finder CreateDesktop false
-killall Finder
 
 # misc
 notice "$notice_title" "Ready for iterm2 profile import"
