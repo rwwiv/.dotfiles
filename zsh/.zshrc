@@ -2,8 +2,6 @@ export ZSH="$HOME/.oh-my-zsh"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-[ -d "$HOME/.dotfiles/zsh/custom" ] && export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
-
 # zsh-nvm (must set before loading plugins)
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
@@ -50,7 +48,7 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # iterm2
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[ -d "$HOME/.dotfiles/zsh/custom" ] && export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
 
 # openssl
 export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH
