@@ -36,3 +36,5 @@ If you haven't done so, things make break. So you know, do that.
  - Set up sync in vscode
  - Log in to Chrome 
  - Log in to Bear
+ - Install/set default nvm version
+ - Install/set default pyenv version
