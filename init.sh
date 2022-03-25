@@ -27,7 +27,7 @@ notice() {
 }
 
 # begin script
-echo "はじめ まして"
+printf '%s\n' "hi - はじめ まして" ""
 
 read -rsp "Print init checklist? " print_init_checklist && echo ""
 
@@ -97,4 +97,4 @@ if [ "$print_end_checklist" = "yes" ] || [ "$print_end_checklist" == "y" ]; then
         " - [ ] Log in to Bear"
 fi
 
-echo "さようなら"
+printf '%s\n' "goodbye - さようなら" ""
