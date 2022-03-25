@@ -16,7 +16,14 @@ notice() {
     title="${1:-"zsh"}"
     text="${2:-"Check terminal in $TERM_PROGRAM"}"
     sound_name="${3:-"Ping"}"
-    osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
+    if [[ $OSTYPE == 'darwin'* ]]; then
+        osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
+    else
+        printf '\a'
+        printf '%s\n' \
+            "$title" \
+            "  $text"
+    fi
 }
 
 # begin script
@@ -28,8 +35,8 @@ if [ "$print_init_checklist" = "yes" ] || [ "$print_init_checklist" == "y" ]; th
     printf "%s\n" \
         "Checklist" \
         " - [ ] Export gpg key from old machine" \
-        " - [ ] Export ssh keys from old machine " \
-        " - [ ] Back up Bear notes"
+        " - [ ] Export ssh keys from old machine "
+        
 fi
 
 # brew
@@ -79,7 +86,6 @@ notice "$notice_title" "Ready for iterm2 profile import"
 echo "Import iterm2 profiles from $dotfiles_dir/iterm2/Profiles.json"
 read -n1 -rsp $'Press key to continue...\n'
 
-
 # end
 read -rsp "Print ending checklist? " print_end_checklist && echo ""
 
@@ -87,7 +93,8 @@ if [ "$print_end_checklist" = "yes" ] || [ "$print_end_checklist" == "y" ]; then
     printf "%s\n" \
         "Checklist" \
         " - [ ] Set up sync in vscode" \
-        " - [ ] Log in to Chrome "
+        " - [ ] Log in to Chrome " \
+        " - [ ] Log in to Bear"
 fi
 
 echo "さようなら"
