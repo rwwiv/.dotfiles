@@ -136,5 +136,9 @@ notice() {
     osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
 }
 
+minify_img () {
+    magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
+}
+
 # END, to export $PATH
 typeset -U PATH
