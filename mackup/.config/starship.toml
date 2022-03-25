@@ -1,0 +1,86 @@
+scan_timeout = 10
+command_timeout=200
+add_newline=false
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_metrics\
+$git_status\
+$package\
+$golang\
+$kotlin\
+$python\
+$custom\
+$time\
+$line_break\
+$jobs\
+$cmd_duration\
+$status\
+$character"""
+
+[username]
+format="[$user@]($style)"
+show_always=true
+style_user="bold"
+
+[hostname]
+format="[$hostname]($style) "
+ssh_only=false
+style="bold"
+
+[directory]
+style="bold cyan"
+
+[git_branch]
+format='([\[]()[ $symbol$branch]($style) )'
+style="bold white"
+
+[git_status]
+format='([\($all_status$ahead_behind\)]($style) )[\]]() '
+
+[git_metrics]
+disabled=false
+format = '([+$added]($added_style))(/[-$deleted]($deleted_style) )'
+
+[line_break]
+disabled = false
+
+[nodejs]
+format="[$symbol($version )]($style)"
+symbol = "啡"
+version_format="${raw}"
+style="bold 35"
+
+[package]
+format="[$symbol$version]($style) "
+symbol="包"
+version_format="${raw}"
+style="bold 009"
+
+[python]
+format='[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol='蟒'
+style="bold 221"
+version_format="${raw}"
+
+[golang]
+format="[$symbol($version )]($style)"
+symbol="鼴"
+version_format="${raw}"
+
+[cmd_duration]
+min_time=30_000
+format="[$duration]($style) "
+
+[status]
+disabled=false
+
+
+
+[character]
+format="$symbol"
+success_symbol = "[❯](bold) "
+error_symbol = "[❯](bold red) "
+vicmd_symbol = "[V](bold) "

@@ -1,0 +1,29 @@
+{
+    "customizeUI.activityBar": "regular",
+    "customizeUI.activityBarHideSettings": true,
+    "customizeUI.moveStatusbar": true,
+    "customizeUI.titleBar": "inline",
+    "window.titleBarStyle": "native",
+    "terminal.integrated.cursorStyle": "line",
+    "editor.fontFamily": "\"Hack Nerd Font\", Monaco, 'Courier New', monospace",
+    "editor.fontSize": 12.5,
+    "debug.console.fontSize": 12.5,
+    "terminal.integrated.fontSize": 12.5,
+    "customizeUI.fontSizeMap": {
+        "14px": "14.5px",
+        "13px": "13.5px",
+        "12px": "12.5px",
+        "11px": "11.5px"
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background" : "#333333",
+        "statusBar.noFolderBackground" : "#333333",
+        "statusBar.debuggingBackground": "#263238"
+    },
+    "editor.minimap.enabled": false,
+    "files.insertFinalNewline": true,
+    "workbench.activityBar.visible": false,
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    }
+}

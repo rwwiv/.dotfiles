@@ -1,0 +1,32 @@
+[oh-my-zsh]
+[commit]
+gpgsign = true
+template = ~/.dotfiles/git/.gitmessage
+[gpg]
+program = gpg
+[core]
+editor = code --wait
+excludesfile = ~/.dotfiles/git/.gitignore
+[diff]
+tool = vscode
+[difftool "default-difftool"]
+cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+tool = vscode
+[mergetool "vscode"]
+cmd = code --wait $MERGED
+[difftool]
+prompt = false
+[mergetool]
+prompt = false
+[pull]
+rebase = true
+[init]
+defaultBranch = main
+[credential]
+helper = osxkeychain
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true

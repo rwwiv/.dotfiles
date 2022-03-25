@@ -1,0 +1,18 @@
+[submodule "zsh-autoswitch-virtualenv"]
+	path = zsh/custom/plugins/zsh-autoswitch-virtualenv
+	url = git@github.com:MichaelAquilina/zsh-autoswitch-virtualenv.git
+[submodule "multi-evalcache"]
+	path = zsh/custom/plugins/multi-evalcache
+	url = git@github.com:rwwiv/multi-evalcache.git
+[submodule "zsh-autosuggestions"]
+	path = zsh/custom/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "zsh-nvm"]
+	path = zsh/custom/plugins/zsh-nvm
+	url = git@github.com:lukechilds/zsh-nvm.git
+[submodule "zsh-syntax-highlighting"]
+	path = zsh/custom/plugins/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule "autoswitch_virtualenv"]
+	path = zsh/custom/plugins/autoswitch_virtualenv
+	url = git@github.com:MichaelAquilina/zsh-autoswitch-virtualenv.git
