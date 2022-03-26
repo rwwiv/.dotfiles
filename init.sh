@@ -47,7 +47,11 @@ defaults write com.apple.finder CreateDesktop false
 killall Finder
 
 # brew
-NONINTERACTIVE=1 which -s brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> "$init_log" 2>&1
+if ! (type brew &>/dev/null); then
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> "$init_log" 2>&1
+else
+    brew update >> "$init_log" 2>&1
+fi
 
 # iterm2
 [ -f "$HOME/.hushlogin" ] || touch "$HOME/.hushlogin"
