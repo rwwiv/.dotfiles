@@ -4,13 +4,6 @@ dotfiles_dir="$HOME/.dotfiles"
 notice_title=".dotfiles init"
 init_log="$dotfiles_dir/init.log"
 
-# check for root
-uid="$(id -u)"
-if [ "$uid" -ne 0 ]; then
-	echo "This script must be run using sudo!"
-	exit 1
-fi
-
 # define helper functions
 notice() {
     local title text sound_name
