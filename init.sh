@@ -14,9 +14,7 @@ notice() {
         osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
     else
         printf '\a'
-        printf '%s\n' \
-            "$title" \
-            "  $text"
+        echo "Waiting for input..."
     fi
 }
 
