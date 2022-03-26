@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -28,6 +29,11 @@ plugins=(
   zsh-autosuggestions
 )
 
+# run this before oh-my-zsh.sh
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -48,7 +54,7 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # iterm2
-[ -d "$HOME/.dotfiles/zsh/custom" ] && export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
+[ -f "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
 
 # openssl
 export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH
@@ -79,7 +85,6 @@ export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 _multi_ec_start "pyenv"
 _multi_ec "pyenv" "init" "--path"
 _multi_ec "pyenv" "init" "-"
-# _multi_ec "pyenv" "virtualenv-init" "-"
 _multi_ec_end "pyenv"
 pyenv virtualenvwrapper
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
@@ -103,9 +108,6 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # homebrew
 export HOMEBREW_GITHUB_API_TOKEN="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"
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
 #llvm
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
