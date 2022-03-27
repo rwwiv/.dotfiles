@@ -114,6 +114,16 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
+# java
+export JAVA_DEFAULT_HOME=$(/usr/libexec/java_home)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v 11.0.11)
+export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_242)
+alias java_default="export JAVA_HOME=$JAVA_DEFAULT_HOMEc"
+alias java11="export JAVA_HOME=$JAVA_11_HOME"
+alias java8="export JAVA_HOME=$JAVA_8_HOME"
+#set default to Java 17
+java_default
+
 # aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
