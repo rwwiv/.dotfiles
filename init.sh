@@ -125,9 +125,6 @@ msg "Restoring mackup backup"
 cp ./mackup/.mackup.cfg "$HOME/.mackup.cfg"
 mackup restore -f
 
-msg "Copying other config files"
-cp -r ./config/{.,}* "$HOME/.config"
-
 msg "Configuring git"
 printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig"
 
