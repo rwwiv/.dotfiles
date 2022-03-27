@@ -106,12 +106,7 @@ fi
 msg "Installing from Brewfile"
 brew bundle --file="$DOTFILES_DIR/brew/Brewfile"
 
-msg "Restoring mackup backup"
-cp ./mackup/.mackup.cfg "$HOME/.mackup.cfg"
-mackup restore
 
-msg "Copying other config files"
-cp -r ./config/{.,}* "$HOME/.config"
 
 msg "Configuring zsh"
 [ "$ZSH" = "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -122,11 +117,16 @@ source "$HOME/.zshrc"
 
 msg "Configuring ssh"
 if [ -f "$HOME/.ssh/.config" ]; then
-    echo "" >>"$DOTFILES_DIR/ssh/config"
-    cat "$HOME/.ssh/config" >>"$DOTFILES_DIR/ssh/.config"
-    rm -f "$HOME/.ssh/.config"
+    echo "" >>"$DOTFILES_DIR/mackup/.ssh/config"
+    cat "$HOME/.ssh/config" >>"$DOTFILES_DIR/mackup/.ssh/config"
 fi
-ln -s "$DOTFILES_DIR/ssh/.config" "$HOME/.ssh/config"
+
+msg "Restoring mackup backup"
+cp ./mackup/.mackup.cfg "$HOME/.mackup.cfg"
+mackup restore -f
+
+msg "Copying other config files"
+cp -r ./config/{.,}* "$HOME/.config"
 
 msg "Configuring git"
 printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig"
