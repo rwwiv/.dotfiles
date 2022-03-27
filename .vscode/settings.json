@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "**/ssh/config": "ssh_config"
-    }
+    },
+    "python.terminal.activateEnvironment": false
 }
