@@ -141,15 +141,20 @@ timezsh() {
 }
 
 notice() {
-    local title text sound_name
-    title="${1:-"zsh"}"
-    text="${2:-"Check terminal in $TERM_PROGRAM"}"
-    sound_name="${3:-"Ping"}"
-    osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
+  local title text sound_name
+  title="${1:-"zsh"}"
+  text="${2:-"Check terminal in $TERM_PROGRAM"}"
+  sound_name="${3:-"Ping"}"
+  osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
 }
 
 minify_img () {
-    magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
+  local source dest
+  source="$1"
+  dest="$2"
+  [ -z $source ] && echo "Missing source" && return 1
+  [ -z $dest ] && dest="$source"
+  magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
 }
 
 # KEEP AT END
