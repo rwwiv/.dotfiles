@@ -37,6 +37,41 @@ fi
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# misc functions
+timezsh() {
+  local shell
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+notice() {
+  local title text sound_name
+  title="${1:-"zsh"}"
+  text="${2:-"Check terminal in $TERM_PROGRAM"}"
+  sound_name="${3:-"Ping"}"
+  osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
+}
+
+minify_img() {
+  local source dest
+  source="$1"
+  dest="$2"
+  [ -z $source ] && echo "Missing source" && return 1
+  [ -z $dest ] && dest="$source"
+  magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
+}
+
+export_multiple() {
+  val="${@[-1]}"
+  arr=($@)
+  unset 'arr[-1]'
+
+  for var in "${arr[@]}"; do
+    [ "$var" = "" ] && continue
+    eval "export ${var}=${val}"
+  done
+}
+
 # manpath
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -118,9 +153,9 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export JAVA_DEFAULT_HOME=$(/usr/libexec/java_home)
 export JAVA_11_HOME=$(/usr/libexec/java_home -v 11.0.11)
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_242)
-alias java_default="export JAVA_HOME=$JAVA_DEFAULT_HOMEc"
-alias java11="export JAVA_HOME=$JAVA_11_HOME"
-alias java8="export JAVA_HOME=$JAVA_8_HOME"
+alias java_default="export_multiple JAVA_HOME JDK_HOME $JAVA_DEFAULT_HOME"
+alias java11="export_multiple JAVA_HOME JDK_HOME $JAVA_11_HOME"
+alias java8="export_multiple JAVA_HOME JDK_HOME $JAVA_8_HOME"
 #set default to Java 17
 java_default
 
@@ -132,30 +167,6 @@ alias reloadzsh="exec zsh"
 # autocomplete
 autoload -Uz compinit
 compinit
-
-# misc functions
-timezsh() {
-  local shell
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
-
-notice() {
-  local title text sound_name
-  title="${1:-"zsh"}"
-  text="${2:-"Check terminal in $TERM_PROGRAM"}"
-  sound_name="${3:-"Ping"}"
-  osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
-}
-
-minify_img () {
-  local source dest
-  source="$1"
-  dest="$2"
-  [ -z $source ] && echo "Missing source" && return 1
-  [ -z $dest ] && dest="$source"
-  magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
-}
 
 # KEEP AT END
 # export any unexported $PATH stuff
