@@ -49,14 +49,14 @@ printf '%s\n' "hi - はじめ まして" ""
 
 trap 'exit_trap $?' EXIT
 
-read -rsp "Print init checklist? (y/N) " print_init_checklist; echo ""
+read -rs "print_init_checklist?Print init checklist? (y/N) "; echo ""
 
 if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
     printf "%s\n" \
         "Pre-install Checklist" \
         " - [ ] Export gpg key(s) from old machine" \
         " - [ ] Export ssh key(s) from old machine "
-    read -n1 -rsp $'Press any key to continue...\n'    
+    read -k1 -q "?Press any key to continue..."    
 fi
 
 
@@ -65,7 +65,7 @@ fi
 export SUDO_ASKPASS="$DOTFILES_DIR/tmp_askpass"
 
 (
-    read -rsp "Enter password for $USER: " < /dev/tty
+    read -rs "Enter password for $USER: " < /dev/tty
     echo "add-generic-password -U -s 'dotfiles' -a '${USER}' -w '${REPLY}'"
 ) | /usr/bin/security -i
 printf "\n"
@@ -131,10 +131,10 @@ printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig
 
 notice "$NOTICE_TITLE" "Ready for gpg key import"
 echo "Import gpg key now"
-read -n1 -rsp $'Press any key to continue...\n'
-read -rsp "Enter email: " git_email; echo ""
-read -rsp "Enter name: " git_name; echo ""
-read -rsp "Enter gpg key fingerprint: " git_gpg_fp; echo ""
+read -k1 -q "?Press any key to continue..."
+read -rs "git_email?Enter email: "; echo ""
+read -rs "git_name?Enter name: "; echo ""
+read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
 git config --global user.email "$git_email"
 git config --global user.name "$git_name"
 git config --global user.signingKey "$git_gpg_fp"
@@ -152,10 +152,10 @@ msg "Misc changes"
 [ -f "$HOME/.hushlogin" ] || touch "$HOME/.hushlogin"
 notice "$NOTICE_TITLE" "Ready for iterm2 profile import"
 echo "Import iterm2 profiles from $DOTFILES_DIR/iterm2/Profiles.json"
-read -n1 -rsp $'Press any key to continue...\n'
+read -k1 -q "?Press any key to continue..."
 
 # END
-read -rsp "Print ending checklist? (y/N) " print_end_checklist; echo ""
+read -rs "print_end_checklist?Print ending checklist? (y/N) "; echo ""
 if [[ "$print_end_checklist" =~ [yY][eE]?[sS]? ]]; then
     printf "%s\n" \
         "Post-install Checklist" \
@@ -164,7 +164,7 @@ if [[ "$print_end_checklist" =~ [yY][eE]?[sS]? ]]; then
         " - [ ] Log in to Bear" \
         " - [ ] Install/set default nvm version" \
         " - [ ] Install/set default pyenv version"
-    read -n1 -rsp $'Press any key to continue...\n'
+    read -k1 -q "?Press any key to continue..."
 fi
 
 printf '%s\n' "goodbye - さようなら" ""
