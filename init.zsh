@@ -137,6 +137,7 @@ if [ -f "$HOME/.ssh/.config" ]; then
 fi
 
 msg "Restoring mackup backup"
+[ -f "$HOME/.mackup.cfg" ] || cp ./mackup/.mackup.cfg "$HOME/.mackup.cfg"
 mackup restore -f
 
 msg "Configuring git"
