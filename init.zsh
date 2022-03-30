@@ -89,7 +89,7 @@ msg "Making UI changes"
 defaults write com.apple.finder CreateDesktop false
 killall Finder
 
-if [ "$(uname -m)" = "arm64" ] && (pgrep oahd); then
+if [ "$(uname -m)" = "arm64" ] && !(pgrep oahd); then
     msg "Installing rosetta"
     softwareupdate --install-rosetta --agree-to-license
 fi
