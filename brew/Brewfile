@@ -107,6 +107,7 @@ cask "balenaetcher"
 cask "bartender"
 cask "bettertouchtool"
 cask "blockblock"
+cask "cheatsheet"
 cask "dbeaver-community"
 cask "docker"
 cask "dotnet-sdk"
@@ -148,3 +149,13 @@ cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
 cask "zoom"
+mas "Amphetamine", id: 937984704
+mas "Bear", id: 1091189122
+mas "Decompressor", id: 1033480833
+mas "Disk Speed Test", id: 425264550
+mas "GarageBand", id: 682658836
+mas "iHosts", id: 1102004240
+mas "Keynote", id: 409183694
+mas "Markoff", id: 1084713122
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
