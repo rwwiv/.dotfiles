@@ -117,7 +117,7 @@ mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
 ln -s "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 
 msg "Configuring pyenv"
-pyenv install "${PYENV_VER}:latest"
+pyenv versions | grep -m1 "${PYENV_VER}" || pyenv install "${PYENV_VER}:latest"
 pyenv global "$(pyenv versions | grep -m1 "${PYENV_VER}" | awk '{print $1}')"
 
 msg "Sourcing $HOME/.zshrc"
