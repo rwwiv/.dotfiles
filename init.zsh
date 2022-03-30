@@ -118,7 +118,8 @@ ln -s "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 
 msg "Configuring pyenv"
 pyenv versions | grep -m1 "${PYENV_VER}" &>/dev/null || pyenv install "${PYENV_VER}:latest"
-pyenv global "$(pyenv versions | grep -m1 "${PYENV_VER}" | awk '{print $1}')"
+pyenv_ver="$(pyenv versions | grep -m1 "${PYENV_VER}" | awk '{print $1}')"
+[ "$pyenv_ver" != "*" ] && pyenv global "$pyenv_ver"
 
 msg "Sourcing $HOME/.zshrc"
 set +e
