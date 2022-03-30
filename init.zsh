@@ -145,7 +145,7 @@ printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig
 
 notice "$NOTICE_TITLE" "Ready for gpg key import"
 echo "Import gpg key now"
-read -k1 -q "?Press any key to continue..." || true|| true
+read -k1 -q "?Press any key to continue..." || true
 read -r "git_email?Enter email: "; echo ""
 read -r "git_name?Enter name: "; echo ""
 read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
@@ -171,7 +171,7 @@ msg "Misc changes"
 [ -f "$HOME/.hushlogin" ] || touch "$HOME/.hushlogin"
 notice "$NOTICE_TITLE" "Ready for iterm2 profile import"
 echo "Import iterm2 profiles from $DOTFILES_DIR/iterm2/Profiles.json"
-read -k1 -q "?Press any key to continue..."
+read -k1 -q "?Press any key to continue..." || true
 
 # END
 read -rs "print_end_checklist?Print ending checklist? (y/N) "; echo ""
@@ -183,7 +183,7 @@ if [[ "$print_end_checklist" =~ [yY][eE]?[sS]? ]]; then
         " - [ ] Log in to Bear" \
         " - [ ] Install/set default nvm version" \
         " - [ ] Install/set default pyenv version"
-    read -k1 -q "?Press any key to continue..."
+    read -k1 -q "?Press any key to continue..." || true
 fi
 
 printf '%s\n' "goodbye - さようなら" ""
