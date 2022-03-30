@@ -56,10 +56,9 @@ if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
         "Pre-install Checklist" \
         " - [ ] Export gpg key(s) from old machine" \
         " - [ ] Export ssh key(s) from old machine "
-        
+    read -n1 -rsp $'Press any key to continue...\n'    
 fi
 
-read -n1 -rsp $'Press any key to continue...\n'
 
 
 # create temp SUDO_ASKPASS
@@ -167,7 +166,7 @@ if [[ "$print_end_checklist" =~ [yY][eE]?[sS]? ]]; then
         " - [ ] Log in to Bear" \
         " - [ ] Install/set default nvm version" \
         " - [ ] Install/set default pyenv version"
+    read -n1 -rsp $'Press any key to continue...\n'
 fi
-read -n1 -rsp $'Press any key to continue...\n'
 
 printf '%s\n' "goodbye - さようなら" ""
