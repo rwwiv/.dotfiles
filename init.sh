@@ -60,14 +60,10 @@ if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
 fi
 
 
-
 # create temp SUDO_ASKPASS
 export SUDO_ASKPASS="$DOTFILES_DIR/tmp_askpass"
 
-(
-    read -rs "Enter password for $USER: " < /dev/tty
-    echo "add-generic-password -U -s 'dotfiles' -a '${USER}' -w '${REPLY}'"
-) | /usr/bin/security -i
+/bin/bash ./pw.sh
 printf "\n"
 
 printf '%s\n' \
