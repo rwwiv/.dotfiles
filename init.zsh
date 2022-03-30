@@ -12,7 +12,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 SCRIPT_PATH="${0:a}"
 HOME="$HOME"
 NOTICE_TITLE=".dotfiles init"
-PREFIX="[${bold}${green}dotfile init${reset_format}] - "
+MSG_PREFIX="[${bold}${green}dotfile init${reset_format}] - "
 PYENV_VER="3.10"
 
 set -e
@@ -45,7 +45,7 @@ notice() {
 msg() {
     local msg
     msg="$1"
-    echo "${PREFIX}${msg}..."
+    echo "${MSG_PREFIX}${msg}..."
 }
 
 # begin script
