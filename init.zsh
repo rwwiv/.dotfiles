@@ -60,7 +60,7 @@ if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
         "Pre-install Checklist" \
         " - [ ] Export gpg key(s) from old machine" \
         " - [ ] Export ssh key(s) from old machine "
-    read -k1 -q "?Press any key to continue..."    
+    read -k1 -q "?Press any key to continue..." || true   
 fi
 
 
@@ -145,7 +145,7 @@ printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig
 
 notice "$NOTICE_TITLE" "Ready for gpg key import"
 echo "Import gpg key now"
-read -k1 -q "?Press any key to continue..."
+read -k1 -q "?Press any key to continue..." || true|| true
 read -rs "git_email?Enter email: "; echo ""
 read -rs "git_name?Enter name: "; echo ""
 read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
