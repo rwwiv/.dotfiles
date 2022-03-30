@@ -1,18 +1,29 @@
-#!/bin/zsh
+#!/bin/zsh -i
+
+# colors
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+blue=$(tput setaf 4)
+bold=$(tput bold)
+reset_format=$(tput sgr0)
 
 # constants
 DOTFILES_DIR="$HOME/.dotfiles"
+SCRIPT_PATH="${0:a}"
+HOME="$HOME"
 NOTICE_TITLE=".dotfiles init"
-PREFIX="${bold}[${green}dotfile init${reset_format}] - "
+PREFIX="[${bold}${green}dotfile init${reset_format}] - "
 PYENV_VER="3.10"
 
 set -e
 exit_trap() {
     set +e
-    local exit_code err_msg
+    local exit_code err_msg line_no line
     exit_code="$1"
+    line_no="$2"
+    line=$(sed -n "${line_no}"p "$SCRIPT_PATH" | sed 's/^[[:space:]]*//')
     if [ "$exit_code" -gt 0 ]; then 
-        err_msg="${blue}NOTICE${reset_format} - Script failed, check above for errors"
+        err_msg="[${red}NOTICE${reset_format}] - command '${line}' failed"
     fi
     [[ -n "$err_msg" ]] && echo "$err_msg"
     echo 'Removing password from Keychain...'
@@ -22,12 +33,7 @@ exit_trap() {
     rm -f "${SUDO_ASKPASS}"
 }
 
-# colors
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-blue=$(tput setaf 4)
-bold=$(tput bold)
-reset_format=$(tput sgr0)
+
 
 # define helper functions
 notice() {
@@ -47,7 +53,7 @@ msg() {
 # begin script
 printf '%s\n' "hi - はじめ まして" ""
 
-trap 'exit_trap $?' EXIT
+trap 'exit_trap $? $LINENO' EXIT
 
 read -rs "print_init_checklist?Print init checklist? (y/N) "; echo ""
 
@@ -63,7 +69,7 @@ fi
 # create temp SUDO_ASKPASS
 export SUDO_ASKPASS="$DOTFILES_DIR/tmp_askpass"
 
-/bin/bash ./pw.sh
+/bin/bash ./init/pw.sh
 printf "\n"
 
 printf '%s\n' \
@@ -85,7 +91,7 @@ msg "Making UI changes"
 defaults write com.apple.finder CreateDesktop false
 killall Finder
 
-if [ "$(uname -m)" = "arm64" ]; then
+if [ "$(uname -m)" = "arm64" ] && (pgrep oahd); then
     msg "Installing rosetta"
     softwareupdate --install-rosetta --agree-to-license
 fi
@@ -107,10 +113,21 @@ msg "Installing from Brewfile"
 brew bundle --file="$DOTFILES_DIR/brew/Brewfile"
 
 msg "Configuring zsh"
-[ "$ZSH" = "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+[ -d "$HOME/.oh-my-zsh" ] && rm -rf "$HOME/.oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
 ln -s "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+
+msg "Configuring pyenv"
+pyenv install "${PYENV_VER}:latest"
+pyenv global "$(pyenv versions | grep -m1 "${PYENV_VER}" | awk '{print $1}')"
+
+msg "Sourcing $HOME/.zshrc"
 source "$HOME/.zshrc"
+
+msg "Configuring nvm"
+nvm install "lts/*"
+nvm use default
 
 msg "Configuring ssh"
 if [ -f "$HOME/.ssh/.config" ]; then
@@ -135,13 +152,18 @@ git config --global user.email "$git_email"
 git config --global user.name "$git_name"
 git config --global user.signingKey "$git_gpg_fp"
 
-msg "Configuring nvm"
-nvm install "lts/*"
-nvm use default
 
-msg "Configuring pyenv"
-pyenv install "${PYENV_VER}:latest"
-pyenv global "$(pyenv versions | grep -m1 "${PYENV_VER}" | awk '{print $1}')"
+
+msg "Installing fonts"
+# Hack Nerd Mono
+curl -L -o hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
+unzip ./hack.zip -d hack
+rm hack/*Windows*
+cp hack/*Mono.ttf "$HOME/Library/Fonts/"
+# Fira Code
+curl -L -o fira.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+unzip ./fira.zip -d fira
+cp fira/variable_ttf/* "$HOME/Library/Fonts/"
 
 msg "Misc changes"
 # iterm2
