@@ -121,7 +121,9 @@ pyenv install "${PYENV_VER}:latest"
 pyenv global "$(pyenv versions | grep -m1 "${PYENV_VER}" | awk '{print $1}')"
 
 msg "Sourcing $HOME/.zshrc"
+set +e
 source "$HOME/.zshrc"
+set -e
 
 msg "Configuring nvm"
 nvm install "lts/*"
