@@ -59,6 +59,9 @@ if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
         
 fi
 
+read -n1 -rsp $'Press any key to continue...\n'
+
+
 # create temp SUDO_ASKPASS
 export SUDO_ASKPASS="$DOTFILES_DIR/tmp_askpass"
 
@@ -130,7 +133,7 @@ printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig
 
 notice "$NOTICE_TITLE" "Ready for gpg key import"
 echo "Import gpg key now"
-read -n1 -rsp $'Press key to continue...\n'
+read -n1 -rsp $'Press any key to continue...\n'
 read -rsp "Enter email: " git_email; echo ""
 read -rsp "Enter name: " git_name; echo ""
 read -rsp "Enter gpg key fingerprint: " git_gpg_fp; echo ""
@@ -151,7 +154,7 @@ msg "Misc changes"
 [ -f "$HOME/.hushlogin" ] || touch "$HOME/.hushlogin"
 notice "$NOTICE_TITLE" "Ready for iterm2 profile import"
 echo "Import iterm2 profiles from $DOTFILES_DIR/iterm2/Profiles.json"
-read -n1 -rsp $'Press key to continue...\n'
+read -n1 -rsp $'Press any key to continue...\n'
 
 # END
 read -rsp "Print ending checklist? (y/N) " print_end_checklist; echo ""
@@ -164,5 +167,6 @@ if [[ "$print_end_checklist" =~ [yY][eE]?[sS]? ]]; then
         " - [ ] Install/set default nvm version" \
         " - [ ] Install/set default pyenv version"
 fi
+read -n1 -rsp $'Press any key to continue...\n'
 
 printf '%s\n' "goodbye - さようなら" ""
