@@ -96,7 +96,7 @@ if [ "$(uname -m)" = "arm64" ]; then
 fi
 
 msg "Installing xcode command line tool"
-xcode-select --install
+xcode-select -p 1>/dev/null || xcode-select --install
 
 if ! (type brew &>/dev/null); then
     msg "Installing homebrew"
@@ -108,8 +108,6 @@ fi
 
 msg "Installing from Brewfile"
 brew bundle --file="$DOTFILES_DIR/brew/Brewfile"
-
-
 
 msg "Configuring zsh"
 [ "$ZSH" = "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
