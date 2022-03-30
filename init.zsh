@@ -171,9 +171,6 @@ cp fira/variable_ttf/* "$HOME/Library/Fonts/"
 msg "Misc changes"
 # iterm2
 [ -f "$HOME/.hushlogin" ] || touch "$HOME/.hushlogin"
-notice "$NOTICE_TITLE" "Ready for iterm2 profile import"
-echo "Import iterm2 profiles from $DOTFILES_DIR/iterm2/Profiles.json"
-read -k1 -q "?Press any key to continue..." || true
 
 # END
 read -rs "print_end_checklist?Print ending checklist? (y/N) "; echo ""
@@ -183,8 +180,7 @@ if [[ "$print_end_checklist" =~ [yY][eE]?[sS]? ]]; then
         " - [ ] Set up sync in vscode" \
         " - [ ] Log in to Chrome " \
         " - [ ] Log in to Bear" \
-        " - [ ] Install/set default nvm version" \
-        " - [ ] Install/set default pyenv version"
+        " - [ ] Import iterm2 profiles from $DOTFILES_DIR/iterm2/Profiles.json"
     read -k1 -q "?Press any key to continue..." || true
 fi
 
