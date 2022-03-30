@@ -1,4 +1,4 @@
-#!/bin/zsh -i
+#!/bin/zsh
 
 # colors
 red=$(tput setaf 1)
@@ -32,8 +32,6 @@ exit_trap() {
     echo 'Deleting temp SUDO_ASKPASS script...'
     rm -f "${SUDO_ASKPASS}"
 }
-
-
 
 # define helper functions
 notice() {
