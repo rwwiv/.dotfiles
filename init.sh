@@ -101,6 +101,9 @@ xcode-select -p 1>/dev/null || xcode-select --install
 if ! (type brew &>/dev/null); then
     msg "Installing homebrew"
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # shellcheck disable=2016
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rwwiv/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     msg "Updating homebrew"
     brew update
