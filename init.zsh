@@ -146,8 +146,8 @@ printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig
 notice "$NOTICE_TITLE" "Ready for gpg key import"
 echo "Import gpg key now"
 read -k1 -q "?Press any key to continue..." || true
-read -r "git_email?Enter email: "; echo ""
-read -r "git_name?Enter name: "; echo ""
+read -r "git_email?Enter email: "
+read -r "git_name?Enter name: "
 read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
 git config --global user.email "$git_email"
 git config --global user.name "$git_name"
