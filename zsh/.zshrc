@@ -26,6 +26,7 @@ plugins=(
   zsh-syntax-highlighting
   # load h-s-s after z-s-h for compat
   history-substring-search
+  # zle-line-init
   zsh-autosuggestions
 )
 
@@ -95,10 +96,18 @@ fi
 export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH
 
 # Go vars
-export GOPATH="$HOME/golang"
-export GOROOT=/usr/local/opt/go/libexec
-export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$GOROOT/binexport"
+
+if [ "$(uname -p)" = "arm" ]; then
+  export GOPATH="$HOME/golang"
+  export GOROOT=/opt/homebrew/opt/go/libexec
+  export PATH="$PATH:$GOPATH/bin"
+  export PATH="$PATH:$GOROOT/bin"
+else
+  export GOPATH="$HOME/golang"
+  export GOROOT=/usr/local/opt/go/libexec
+  export PATH="$PATH:$GOPATH/bin"
+  export PATH="$PATH:$GOROOT/binexport"
+fi
 
 # Python2 pip
 export PATH="$PATH:"/Users/rwwiv/Library/Python/2*/bin

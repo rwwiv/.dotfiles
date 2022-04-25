@@ -411,7 +411,7 @@
                         "vendor_id": 1452
                     },
                     "ignore": true,
-                    "manipulate_caps_lock_led": false,
+                    "manipulate_caps_lock_led": true,
                     "simple_modifications": []
                 },
                 {
@@ -435,7 +435,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f1"
+                            "consumer_key_code": "display_brightness_decrement"
                         }
                     ]
                 },
@@ -445,7 +445,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f2"
+                            "consumer_key_code": "display_brightness_increment"
                         }
                     ]
                 },
@@ -455,7 +455,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f3"
+                            "apple_vendor_keyboard_key_code": "mission_control"
                         }
                     ]
                 },
@@ -465,7 +465,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f4"
+                            "apple_vendor_keyboard_key_code": "spotlight"
                         }
                     ]
                 },
@@ -475,7 +475,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f5"
+                            "consumer_key_code": "dictation"
                         }
                     ]
                 },
@@ -495,7 +495,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f7"
+                            "consumer_key_code": "rewind"
                         }
                     ]
                 },
@@ -505,7 +505,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f8"
+                            "consumer_key_code": "play_or_pause"
                         }
                     ]
                 },
@@ -515,7 +515,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f9"
+                            "consumer_key_code": "fast_forward"
                         }
                     ]
                 },
@@ -525,7 +525,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f10"
+                            "consumer_key_code": "mute"
                         }
                     ]
                 },
@@ -535,7 +535,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f11"
+                            "consumer_key_code": "volume_decrement"
                         }
                     ]
                 },
@@ -545,7 +545,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f12"
+                            "consumer_key_code": "volume_increment"
                         }
                     ]
                 }

@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # Inspired by https://github.com/mroth/evalcache
 
 # default cache directory

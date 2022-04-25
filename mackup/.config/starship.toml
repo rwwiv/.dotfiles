@@ -12,6 +12,7 @@ $package\
 $golang\
 $kotlin\
 $python\
+$nodejs\
 $custom\
 $time\
 $line_break\
@@ -76,8 +77,6 @@ format="[$duration]($style) "
 
 [status]
 disabled=false
-
-
 
 [character]
 format="$symbol"
