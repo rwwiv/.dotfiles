@@ -26,7 +26,7 @@ plugins=(
   zsh-syntax-highlighting
   # load h-s-s after z-s-h for compat
   history-substring-search
-  # zle-line-init
+  zle-line-init
   zsh-autosuggestions
 )
 
