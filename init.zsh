@@ -153,8 +153,6 @@ git config --global user.email "$git_email"
 git config --global user.name "$git_name"
 git config --global user.signingKey "$git_gpg_fp"
 
-
-
 msg "Installing fonts"
 # Hack Nerd Mono
 curl -L -o hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip

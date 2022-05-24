@@ -398,7 +398,7 @@
                         "vendor_id": 4152
                     },
                     "ignore": true,
-                    "manipulate_caps_lock_led": false,
+                    "manipulate_caps_lock_led": true,
                     "simple_modifications": []
                 },
                 {

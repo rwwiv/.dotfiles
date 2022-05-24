@@ -96,7 +96,6 @@ fi
 export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH
 
 # Go vars
-
 if [ "$(uname -p)" = "arm" ]; then
   export GOPATH="$HOME/golang"
   export GOROOT=/opt/homebrew/opt/go/libexec
