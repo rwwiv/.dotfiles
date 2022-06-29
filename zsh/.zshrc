@@ -1,3 +1,6 @@
+# secrets
+source "$HOME/.dotfiles/zsh/secrets"
+
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
 COMPLETION_WAITING_DOTS="true"
@@ -148,9 +151,6 @@ export PATH="$PATH:/usr/local/sbin"
 # gnu tools
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-
-# homebrew
-export HOMEBREW_GITHUB_API_TOKEN="FIXME"
 
 #llvm
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"

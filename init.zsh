@@ -22,7 +22,7 @@ exit_trap() {
     exit_code="$1"
     line_no="$2"
     line=$(sed -n "${line_no}"p "$SCRIPT_PATH" | sed 's/^[[:space:]]*//')
-    if [ "$exit_code" -gt 0 ]; then 
+    if [ "$exit_code" -gt 0 ]; then
         err_msg="[${red}NOTICE${reset_format}] - command '${line}' failed"
     fi
     [[ -n "$err_msg" ]] && echo "$err_msg"
@@ -60,7 +60,7 @@ if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
         "Pre-install Checklist" \
         " - [ ] Export gpg key(s) from old machine" \
         " - [ ] Export ssh key(s) from old machine "
-    read -k1 -q "?Press any key to continue..." || true   
+    read -k1 -q "?Press any key to continue..." || true
 fi
 
 
@@ -85,6 +85,9 @@ fi
 
 msg "Running"
 
+msg "Creating .zshrc secrets file"
+echo "#!/bin/zsh" > "$DOTFILES_DIR/zsh/secrets"
+
 msg "Making UI changes"
 defaults write com.apple.finder CreateDesktop false
 killall Finder
@@ -102,6 +105,12 @@ if ! (type brew &>/dev/null); then
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rwwiv/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    if [ grep -c "GITHUB_API_TOKEN" "$DOTFILES_DIR/zsh/secrets" -eq 0 ]; then
+        notice "$NOTICE_TITLE" "Ready for Homebrew GitHub token"
+        read -rs "homebrew_github_api_tokenl?Paste token here: "; echo ""
+        echo "export HOMEBREW_GITHUB_API_TOKEN=\"$homebrew_github_api_token\"" >> "$DOTFILES_DIR/zsh/secrets"
+    fi
+
 else
     msg "Updating homebrew"
     brew update
