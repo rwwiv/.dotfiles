@@ -150,7 +150,7 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # homebrew
-export HOMEBREW_GITHUB_API_TOKEN="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"
+export HOMEBREW_GITHUB_API_TOKEN="FIXME"
 
 #llvm
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
