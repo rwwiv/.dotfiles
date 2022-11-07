@@ -38,7 +38,7 @@ function _multi_ec() {
         return 1
       fi
       # Return immediately if the eval is already in the full cache file
-      if [ -f "$cacheFile" ] && [ $(grep -c "\b$idString\b" "$cacheFile") -gt 0 ]; then
+      if [ -f "$cacheFile" ] && [ $(/usr/bin/grep -c "\b$idString\b" "$cacheFile") -gt 0 ]; then
         return 0
       fi
       __single_ec "$cacheFile" "$idString" "$@"

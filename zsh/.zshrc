@@ -13,7 +13,7 @@ export NVM_AUTO_USE=true
 
 plugins=(
   aliases
-  autoswitch_virtualenv
+  # autoswitch_virtualenv
   alias-finder
   direnv
   encode64
@@ -95,27 +95,29 @@ fi
 # iterm2
 [ -f "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
 
+
+BREW_PREFIX="$(brew --prefix)"
+
 # openssl
-export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH
+export DYLD_FALLBACK_LIBRARY_PATH="${BREW_PREFIX}/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+export PATH="${BREW_PREFIX}/opt/openssl@3/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/openssl@3/lib"
+export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/openssl@3/include"
 
 # Go vars
-if [ "$(uname -p)" = "arm" ]; then
-  export GOPATH="$HOME/golang"
-  export GOROOT=/opt/homebrew/opt/go/libexec
-  export PATH="$PATH:$GOPATH/bin"
-  export PATH="$PATH:$GOROOT/bin"
-else
-  export GOPATH="$HOME/golang"
-  export GOROOT=/usr/local/opt/go/libexec
-  export PATH="$PATH:$GOPATH/bin"
-  export PATH="$PATH:$GOROOT/binexport"
-fi
+export GOPATH="$HOME/golang"
+export GOROOT="${BREW_PREFIX}/opt/go/libexec"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOROOT/bin"
+
+# Python
+export PATH="$PATH:/Users/rwwiv/.local/bin"
 
 # Python2 pip
-export PATH="$PATH:"/Users/rwwiv/Library/Python/2*/bin
+export PATH="$PATH:/Users/rwwiv/Library/Python/2*/bin"
 
 # Python3 pip
-export PATH="$PATH:"/Users/rwwiv/Library/Python/3*/bin
+export PATH="$PATH:/Users/rwwiv/Library/Python/3*/bin"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -145,17 +147,16 @@ _evalcache "thefuck" "--alias"
 export STARSHIP_LOG="error"
 _evalcache "starship" "init" "zsh"
 
+# spaceship
+# source $(brew --prefix)/opt/spaceship/spaceship.zsh
+
 # misc
 export PATH="$PATH:/usr/local/sbin"
 
-# gnu tools
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-
 #llvm
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
+export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
 
 # java
 export JAVA_DEFAULT_HOME=$(/usr/libexec/java_home)
@@ -166,6 +167,16 @@ alias java11="export_multiple JAVA_HOME JDK_HOME $JAVA_11_HOME"
 alias java8="export_multiple JAVA_HOME JDK_HOME $JAVA_8_HOME"
 #set default to Java 17
 java_default
+
+#postgres
+export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"
+export PATH="${BREW_PREFIX}/opt/postgresql@14/bin:$PATH"
+
+# gnu tools
+for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH="$bindir:$PATH"; done
+for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
+for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH="$mandir:$MANPATH"; done
+for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
 
 # aliases
 alias zshconfig="code ~/.zshrc"
