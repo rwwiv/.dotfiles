@@ -13,7 +13,7 @@ SCRIPT_PATH="${0:a}"
 HOME="$HOME"
 NOTICE_TITLE=".dotfiles init"
 MSG_PREFIX="[${bold}${green}dotfile init${reset_format}] - "
-PYENV_VER="3.10"
+PYENV_VER="3.11"
 
 set -e
 exit_trap() {

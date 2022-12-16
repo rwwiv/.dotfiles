@@ -13,7 +13,7 @@ export NVM_AUTO_USE=true
 
 plugins=(
   aliases
-  # autoswitch_virtualenv
+  autoswitch_virtualenv
   alias-finder
   direnv
   encode64
@@ -104,6 +104,15 @@ export PATH="${BREW_PREFIX}/opt/openssl@3/bin:$PATH"
 export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/openssl@3/lib"
 export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/openssl@3/include"
 
+# zlib
+export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/zlib/lib"
+export CFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/zlib/include"
+export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/zlib/lib/pkgconfig"
+
+# xcrun
+# export LDFLAGS="$LDFLAGS -L$(xcrun --show-sdk-path)/usr/lib"
+# export CPPFLAGS="$CPPFLAGS -I$(xcrun --show-sdk-path)/usr/include"
+
 # Go vars
 export GOPATH="$HOME/golang"
 export GOROOT="${BREW_PREFIX}/opt/go/libexec"
@@ -147,9 +156,6 @@ _evalcache "thefuck" "--alias"
 export STARSHIP_LOG="error"
 _evalcache "starship" "init" "zsh"
 
-# spaceship
-# source $(brew --prefix)/opt/spaceship/spaceship.zsh
-
 # misc
 export PATH="$PATH:/usr/local/sbin"
 
@@ -165,18 +171,15 @@ export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_242)
 alias java_default="export_multiple JAVA_HOME JDK_HOME $JAVA_DEFAULT_HOME"
 alias java11="export_multiple JAVA_HOME JDK_HOME $JAVA_11_HOME"
 alias java8="export_multiple JAVA_HOME JDK_HOME $JAVA_8_HOME"
-#set default to Java 17
+# set default to Java 17
 java_default
 
-#postgres
+# postgres
 export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"
 export PATH="${BREW_PREFIX}/opt/postgresql@14/bin:$PATH"
 
-# gnu tools
-for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH="$bindir:$PATH"; done
-for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
-for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH="$mandir:$MANPATH"; done
-for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
+# homebrew
+export HOMEBREW_NO_ENV_HINTS="true"
 
 # aliases
 alias zshconfig="code ~/.zshrc"
@@ -186,6 +189,13 @@ alias reloadzsh="exec zsh"
 # autocomplete
 autoload -Uz compinit
 compinit
+
+# gnu tools
+for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
+for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH="$mandir:$MANPATH"; done
+for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH="$bindir:$PATH"; done
+for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
+
 
 # KEEP AT END
 # export any unexported $PATH stuff

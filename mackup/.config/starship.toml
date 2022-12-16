@@ -1,6 +1,5 @@
-scan_timeout = 10
-command_timeout=200
-add_newline=false
+add_newline = false
+command_timeout = 200
 format = """
 $username\
 $hostname\
@@ -19,66 +18,74 @@ $jobs\
 $cmd_duration\
 $status\
 $character"""
+scan_timeout = 10
 
 [username]
-format="[$user@]($style)"
-show_always=true
-style_user="bold"
+format = "[$user@]($style)"
+show_always = true
+style_user = "bold"
 
 [hostname]
-format="[$hostname]($style) "
-ssh_only=false
-style="bold"
+format = "[$hostname]($style) "
+ssh_only = false
+style = "bold"
 
 [directory]
-style="bold cyan"
+style = "bold cyan"
 
 [git_branch]
-format='([\[]()[ $symbol$branch]($style) )'
-style="bold white"
+format = '([\[]()[ $symbol$branch]($style) )'
+style = "bold white"
 
 [git_status]
-format='([\($all_status$ahead_behind\)]($style) )[\]]() '
+format = '([\($all_status$ahead_behind\)]($style) )[\]]() '
 
 [git_metrics]
-disabled=false
+disabled = false
 format = '([+$added]($added_style))(/[-$deleted]($deleted_style) )'
 
 [line_break]
 disabled = false
 
 [nodejs]
-format="[$symbol($version )]($style)"
+format = "[$symbol($version )]($style)"
+style = "bold 35"
 symbol = "啡"
-version_format="${raw}"
-style="bold 35"
+version_format = "${raw}"
 
 [package]
-format="[$symbol$version]($style) "
-symbol="包"
-version_format="${raw}"
-style="bold 009"
+format = "[$symbol$version]($style) "
+style = "bold 009"
+symbol = "包"
+version_format = "${raw}"
 
 [python]
-format='[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-symbol='蟒'
-style="bold 221"
-version_format="${raw}"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+pyenv_prefix = "pyenv "
+pyenv_version_name = true
+style = "bold 221"
+symbol = '蟒'
+version_format = "${raw}"
 
 [golang]
-format="[$symbol($version )]($style)"
-symbol="鼴"
-version_format="${raw}"
+format = "[$symbol($version )]($style)"
+symbol = "鼴"
+version_format = "${raw}"
 
 [cmd_duration]
-min_time=30_000
-format="[$duration]($style) "
+format = "[$duration]($style) "
+min_time = 30_000
 
 [status]
-disabled=false
+disabled = false
+format = '[$symbol $status]($style) '
+not_executable_symbol = "尀"
+not_found_symbol = "𠳕"
+sigint_symbol = "断"
+signal_symbol = "烽"
+symbol = "✗"
 
 [character]
-format="$symbol"
-success_symbol = "[❯](bold) "
 error_symbol = "[❯](bold red) "
-vicmd_symbol = "[V](bold) "
+format = "$symbol"
+success_symbol = "[❯](bold) "
