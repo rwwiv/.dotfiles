@@ -9,7 +9,7 @@ function _multi_ec_start() {
   local cacheFile="$ZSH_MULTI_EVALCACHE_DIR/init-${1##*/}.zsh"
 
   [ -d "$ZSH_MULTI_EVALCACHE_DIR" ] && mkdir -p "$ZSH_MULTI_EVALCACHE_DIR"
-  touch "$cacheFile"
+  printf "%s\n" "#!/usr/bin/env zsh" >>"$cacheFile"
 }
 
 # Usage: __single_ec <cache file> <id string> <command> <arguments ...>
@@ -63,6 +63,9 @@ function _multi_ec_clear() {
     f)
       force=true
       ;;
+    *)
+      force=false
+      ;;
     esac
   done
   shift $((OPTIND - 1))
@@ -85,8 +88,11 @@ function _evalcache() {
   else
     if type "$1" >/dev/null; then
       mkdir -p "$ZSH_MULTI_EVALCACHE_DIR"
-      [ ! -f "$cacheFile" ] && __single_ec "$cacheFile" "# $*" "$@" || ecRes=0
-      ecRes=$?
+      if [ ! -f "$cacheFile" ]; then
+        printf "%s\n" "#!/usr/bin/env zsh" >>"$cacheFile"
+        __single_ec "$cacheFile" "# $*" "$@" || ecRes=1
+        ecRes=$?
+      fi
     else
       echo "multi-evalcache ERROR: $1 is not installed or in PATH"
     fi

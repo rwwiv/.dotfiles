@@ -181,6 +181,14 @@ export PATH="${BREW_PREFIX}/opt/postgresql@14/bin:$PATH"
 # homebrew
 export HOMEBREW_NO_ENV_HINTS="true"
 
+# pico sdk
+export PICO_SDK_PATH="$HOME/repos/pico-sdk"
+
+# llvm 14
+export PATH="${BREW_PREFIX}/opt/llvm@14/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm@14/lib"
+export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm@14/include"
+
 # aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
