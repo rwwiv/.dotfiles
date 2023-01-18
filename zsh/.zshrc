@@ -3,7 +3,9 @@ source "$HOME/.dotfiles/zsh/secrets"
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
+# shellcheck disable=SC2034
 COMPLETION_WAITING_DOTS="true"
+# shellcheck disable=SC2034
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # zsh-nvm (must set before loading plugins)
@@ -11,12 +13,11 @@ export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 export NVM_AUTO_USE=true
 
+# shellcheck disable=SC2034
 plugins=(
   aliases
   autoswitch_virtualenv
-  alias-finder
   poetry
-  direnv
   encode64
   multi-evalcache
   extract
@@ -24,15 +25,15 @@ plugins=(
   git-flow
   macos
   python
-  poetry
   rsync
   safe-paste
   zsh-nvm
   zsh-syntax-highlighting
   # load h-s-s after z-s-h for compat
-  history-substring-search
+  # history-substring-search
   zle-line-init
   zsh-autosuggestions
+  direnv
 )
 
 # run this before oh-my-zsh.sh
@@ -47,7 +48,7 @@ source $ZSH/oh-my-zsh.sh
 timezsh() {
   local shell
   shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+  for _ in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
 notice() {
@@ -121,47 +122,6 @@ export GOROOT="${BREW_PREFIX}/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/bin"
 
-# Python
-export PATH="$PATH:/Users/rwwiv/.local/bin"
-
-# Python2 pip
-export PATH="$PATH:/Users/rwwiv/Library/Python/2*/bin"
-
-# Python3 pip
-export PATH="$PATH:/Users/rwwiv/Library/Python/3*/bin"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-# Keep JIC, but load nvm using zsh-nvm which can lazy load nvm
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-
-# virtualenvwrapper
-export WORKON_HOME="$HOME/.virtualenvs"
-export VIRTUAL_ENV_DISABLE_PROMPT=0
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-
-# pyenv
-_multi_ec_start "pyenv"
-_multi_ec "pyenv" "init" "--path"
-_multi_ec "pyenv" "init" "-"
-_multi_ec_end "pyenv"
-pyenv virtualenvwrapper
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
-# direnv
-_evalcache "direnv" "hook" "zsh"
-
-# thefuck
-_evalcache "thefuck" "--alias"
-
-# starship
-export STARSHIP_LOG="error"
-_evalcache "starship" "init" "zsh"
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-_evalcache "jenv" "init" "-"
-
 # misc
 export PATH="$PATH:/usr/local/sbin"
 
@@ -169,8 +129,6 @@ export PATH="$PATH:/usr/local/sbin"
 export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
 export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
 export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
-
-# java
 
 # postgres
 export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"
@@ -187,14 +145,54 @@ export PATH="${BREW_PREFIX}/opt/llvm@14/bin:$PATH"
 export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm@14/lib"
 export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm@14/include"
 
+# Python
+export PATH="$PATH:/Users/rwwiv/.local/bin"
+
+# Python2 pip
+export PATH="$PATH:/Users/rwwiv/Library/Python/2*/bin"
+
+# Python3 pip
+export PATH="$PATH:/Users/rwwiv/Library/Python/3*/bin"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+# Keep JIC, but load nvm using zsh-nvm which can lazy load nvm
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+
+# pyenv
+_multi_ec_start "pyenv"
+_multi_ec "pyenv" "init" "--path"
+_multi_ec "pyenv" "init" "-"
+_multi_ec_end "pyenv"
+pyenv virtualenvwrapper
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+# virtualenvwrapper
+export WORKON_HOME="$HOME/.virtualenvs"
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+# direnv
+_evalcache "direnv" "hook" "zsh"
+
+# thefuck
+_evalcache "thefuck" "--alias"
+
+# starship
+export STARSHIP_LOG="error"
+_evalcache "starship" "init" "zsh"
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+_evalcache "jenv" "init" "-"
+
 # aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias reloadzsh="exec zsh"
 
 # autocomplete
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 # gnu tools
 for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
@@ -202,7 +200,10 @@ for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH="$mandi
 for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH="$bindir:$PATH"; done
 for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
 
+[ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh"
 
 # KEEP AT END
 # export any unexported $PATH stuff
 typeset -U PATH
+
+

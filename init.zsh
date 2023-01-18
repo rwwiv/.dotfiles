@@ -105,7 +105,7 @@ if ! (type brew &>/dev/null); then
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rwwiv/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    if [ grep -c "GITHUB_API_TOKEN" "$DOTFILES_DIR/zsh/secrets" -eq 0 ]; then
+    if [ "$(grep -c "GITHUB_API_TOKEN" "$DOTFILES_DIR/zsh/secrets")" -eq 0 ]; then
         notice "$NOTICE_TITLE" "Ready for Homebrew GitHub token"
         read -rs "homebrew_github_api_tokenl?Paste token here: "; echo ""
         echo "export HOMEBREW_GITHUB_API_TOKEN=\"$homebrew_github_api_token\"" >> "$DOTFILES_DIR/zsh/secrets"

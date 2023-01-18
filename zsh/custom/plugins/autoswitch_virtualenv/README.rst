@@ -72,6 +72,7 @@ Installing
 ----------
 
 ``autoswitch-virtualenv`` requires `virtualenv <https://pypi.org/project/virtualenv/>`__ to be installed.
+You will also need to make sure that ``python`` (without a suffix; both Python 2 and 3 are supported) is available in your ``$PATH``.
 
 Once ``virtualenv`` is installed, add one of the following lines to your ``.zshrc`` file depending on the
 package manager you are using:
@@ -93,6 +94,14 @@ Zgen_
 ::
 
     zgen load "MichaelAquilina/zsh-autoswitch-virtualenv"
+
+Fig_
+
+Install ``zsh-autoswitch-virtualenv`` with Fig in just one click.
+
+.. image:: https://fig.io/badges/install-with-fig.svg
+  :target: https://fig.io/plugins/other/zsh-autoswitch-virtualenv_MichaelAquilina
+  :alt: Install with Fig
 
 oh-my-zsh_
 
@@ -358,6 +367,8 @@ NOTE: It is required that you use a minimum zunit version of 0.8.2
 .. _Antigen: https://github.com/zsh-users/antigen
 
 .. _ZGen: https://github.com/tarjoilija/zgen
+
+.. _Fig: https://fig.io
 
 .. _oh-my-zsh: https://github.com/robbyrussell/oh-my-zsh
 
