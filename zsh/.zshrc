@@ -15,6 +15,7 @@ plugins=(
   aliases
   autoswitch_virtualenv
   alias-finder
+  poetry
   direnv
   encode64
   multi-evalcache
@@ -23,6 +24,7 @@ plugins=(
   git-flow
   macos
   python
+  poetry
   rsync
   safe-paste
   zsh-nvm
@@ -156,6 +158,10 @@ _evalcache "thefuck" "--alias"
 export STARSHIP_LOG="error"
 _evalcache "starship" "init" "zsh"
 
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+_evalcache "jenv" "init" "-"
+
 # misc
 export PATH="$PATH:/usr/local/sbin"
 
@@ -165,14 +171,6 @@ export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
 export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
 
 # java
-export JAVA_DEFAULT_HOME=$(/usr/libexec/java_home)
-export JAVA_11_HOME=$(/usr/libexec/java_home -v 11.0.11)
-export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_242)
-alias java_default="export_multiple JAVA_HOME JDK_HOME $JAVA_DEFAULT_HOME"
-alias java11="export_multiple JAVA_HOME JDK_HOME $JAVA_11_HOME"
-alias java8="export_multiple JAVA_HOME JDK_HOME $JAVA_8_HOME"
-# set default to Java 17
-java_default
 
 # postgres
 export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"

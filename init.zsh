@@ -130,6 +130,12 @@ pyenv versions | grep -m1 "${PYENV_VER}" &>/dev/null || pyenv install "${PYENV_V
 pyenv_ver="$(pyenv versions | grep -m1 "${PYENV_VER}" | awk '{print $1}')"
 [ "$pyenv_ver" != "*" ] && pyenv global "$pyenv_ver"
 
+msg "Installing poetry"
+curl -sSL https://install.python-poetry.org | python3 -
+ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
+mkdir $ZSH_CUSTOM/plugins/poetry
+$HOME/.local/bin/poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+
 msg "Sourcing $HOME/.zshrc"
 set +e
 source "$HOME/.zshrc"
