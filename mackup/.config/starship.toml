@@ -43,7 +43,7 @@ truncation_length = 3
 repo_root_style = "bold cyan"
 
 [git_branch]
-format = '([\[]()[ $symbol$branch]($style) )'
+format = '( [\[]()[ $symbol$branch]($style) )'
 style = "bold white"
 
 [git_status]
@@ -69,7 +69,7 @@ symbol = "包"
 version_format = "${raw}"
 
 [python]
-format = '[${symbol}(${version} )(\($virtualenv\))]($style)'
+format = '[ ${symbol}(${version}) (\($virtualenv\)) ]($style)'
 pyenv_prefix = "pyenv "
 pyenv_version_name = true
 style = "bold 221"
@@ -77,16 +77,16 @@ symbol = '蟒'
 version_format = "${raw}"
 
 [golang]
-format = "[$symbol($version )]($style)"
+format = "[ $symbol($version)]($style)"
 symbol = "鼴"
 version_format = "${raw}"
 
 [rust]
-format = "[$symbol($version )]($style)"
+format = "[ $symbol($version)]($style)"
 symbol = "銹"
 
 [c]
-format = "[$symbol($version )]($style)"
+format = "[ $symbol($version)]($style)"
 commands = [
     [ 'clang', '--version' ]
 ]

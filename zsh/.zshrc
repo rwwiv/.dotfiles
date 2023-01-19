@@ -16,24 +16,18 @@ export NVM_AUTO_USE=true
 # shellcheck disable=SC2034
 plugins=(
   aliases
-  autoswitch_virtualenv
-  poetry
   encode64
-  multi-evalcache
   extract
   git
   git-flow
-  macos
-  python
+  multi-evalcache
   rsync
   safe-paste
   zsh-nvm
   zsh-syntax-highlighting
-  # load h-s-s after z-s-h for compat
-  # history-substring-search
-  zle-line-init
   zsh-autosuggestions
-  direnv
+  zle-line-init
+  z
 )
 
 # run this before oh-my-zsh.sh
@@ -43,6 +37,7 @@ fi
 
 # load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+zstyle ':completion:*' menu select
 
 # misc functions
 timezsh() {
@@ -68,19 +63,10 @@ minify_img() {
   magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
 }
 
-export_multiple() {
-  val="${@[-1]}"
-  arr=($@)
-  unset 'arr[-1]'
-
-  for var in "${arr[@]}"; do
-    [ "$var" = "" ] && continue
-    eval "export ${var}=${val}"
-  done
-}
+BREW_PREFIX="$(brew --prefix)"
 
 # manpath
-export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="${BREW_PREFIX}/man:$MANPATH"
 
 # language environment
 export LANG=en_US.UTF-8
@@ -92,14 +78,8 @@ else
   export EDITOR='code'
 fi
 
-# compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # iterm2
 [ -f "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
-
-
-BREW_PREFIX="$(brew --prefix)"
 
 # openssl
 export DYLD_FALLBACK_LIBRARY_PATH="${BREW_PREFIX}/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH"
@@ -126,9 +106,9 @@ export PATH="$PATH:$GOROOT/bin"
 export PATH="$PATH:/usr/local/sbin"
 
 #llvm
-export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
-export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
-export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
+# export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
+# export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
+# export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
 
 # postgres
 export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"
@@ -140,10 +120,6 @@ export HOMEBREW_NO_ENV_HINTS="true"
 # pico sdk
 export PICO_SDK_PATH="$HOME/repos/pico-sdk"
 
-# llvm 14
-export PATH="${BREW_PREFIX}/opt/llvm@14/bin:$PATH"
-export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm@14/lib"
-export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm@14/include"
 
 # Python
 export PATH="$PATH:/Users/rwwiv/.local/bin"
@@ -160,17 +136,8 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 
 # pyenv
-_multi_ec_start "pyenv"
-_multi_ec "pyenv" "init" "--path"
-_multi_ec "pyenv" "init" "-"
-_multi_ec_end "pyenv"
-pyenv virtualenvwrapper
+_evalcache "pyenv" "init" "-"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
-# virtualenvwrapper
-export WORKON_HOME="$HOME/.virtualenvs"
-export VIRTUAL_ENV_DISABLE_PROMPT=0
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 # direnv
 _evalcache "direnv" "hook" "zsh"
@@ -182,6 +149,12 @@ _evalcache "thefuck" "--alias"
 export STARSHIP_LOG="error"
 _evalcache "starship" "init" "zsh"
 
+# # libxml2
+# export PATH="${BREW_PREFIX}/opt/libxml2/bin:$PATH"
+# export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/libxml2/lib/pkgconfig"
+# export LDFLAGS="-L${BREW_PREFIX}/opt/libxml2/lib ${LDFLAGS}"
+# export CPPFLAGS="-I${BREW_PREFIX}/opt/libxml2/include ${CPPFLAGS}"
+
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 _evalcache "jenv" "init" "-"
@@ -190,20 +163,20 @@ _evalcache "jenv" "init" "-"
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias reloadzsh="exec zsh"
+alias code="code -n"
 
 # autocomplete
 autoload -Uz compinit && compinit
 
 # gnu tools
-for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
+# for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
+# for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
+
 for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH="$mandir:$MANPATH"; done
 for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH="$bindir:$PATH"; done
-for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
 
 [ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh"
 
 # KEEP AT END
 # export any unexported $PATH stuff
 typeset -U PATH
-
-
