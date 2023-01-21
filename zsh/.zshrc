@@ -106,9 +106,9 @@ export PATH="$PATH:$GOROOT/bin"
 export PATH="$PATH:/usr/local/sbin"
 
 #llvm
-# export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
-# export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
-# export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
+export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
+export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
 
 # postgres
 export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"
@@ -163,7 +163,7 @@ _evalcache "jenv" "init" "-"
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias reloadzsh="exec zsh"
-alias code="code -n"
+# alias code="code -n"
 
 # autocomplete
 autoload -Uz compinit && compinit

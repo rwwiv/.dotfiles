@@ -13,6 +13,7 @@ $golang\
 $rust\
 $c\
 $python\
+$swift\
 $line_break\
 $jobs\
 $cmd_duration\
@@ -40,14 +41,14 @@ style = "bold"
 [directory]
 style = "bold gray"
 truncation_length = 3
-repo_root_style = "bold cyan"
+repo_root_style = "bold italic cyan"
 
 [git_branch]
-format = '( [\[]()[ $symbol$branch]($style) )'
+format = '([\[]()[ $symbol$branch]($style) )'
 style = "bold white"
 
 [git_status]
-format = '([\($all_status$ahead_behind\)]($style) )[\]]() '
+format = '([\($all_status$ahead_behind\)]($style) )[\]]()'
 
 [git_metrics]
 disabled = false
@@ -57,19 +58,25 @@ format = '([+$added]($added_style))(/[-$deleted]($deleted_style) )'
 disabled = false
 
 [nodejs]
-format = "[$symbol($version )]($style)"
+format = " [$symbol($version)]($style)"
 style = "bold 35"
 symbol = "啡"
 version_format = "${raw}"
 
+[swift]
+format = " [$symbol($version)]($style)"
+symbol = "䨹"
+style = "bold 208"
+disable = false
+
 [package]
-format = "[$symbol$version]($style) "
+format = " [$symbol$version]($style) "
 style = "bold 009"
 symbol = "包"
 version_format = "${raw}"
 
 [python]
-format = '[ ${symbol}(${version}) (\($virtualenv\)) ]($style)'
+format = ' [${symbol}(${version}) (\($virtualenv\))]($style)'
 pyenv_prefix = "pyenv "
 pyenv_version_name = true
 style = "bold 221"
@@ -77,16 +84,16 @@ symbol = '蟒'
 version_format = "${raw}"
 
 [golang]
-format = "[ $symbol($version)]($style)"
+format = " [$symbol($version)]($style)"
 symbol = "鼴"
 version_format = "${raw}"
 
 [rust]
-format = "[ $symbol($version)]($style)"
+format = " [$symbol($version)]($style)"
 symbol = "銹"
 
 [c]
-format = "[ $symbol($version)]($style)"
+format = " [$symbol($version)]($style)"
 commands = [
     [ 'clang', '--version' ]
 ]
