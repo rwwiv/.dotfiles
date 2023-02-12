@@ -1,0 +1,277 @@
+[
+	{
+		"name": "TEXT",
+		"value": "Preparing request to http://127.0.0.1:8000/ads-id",
+		"timestamp": 1664244836300
+	},
+	{
+		"name": "TEXT",
+		"value": "Current time is 2022-09-27T02:13:56.300Z",
+		"timestamp": 1664244836300
+	},
+	{
+		"name": "TEXT",
+		"value": "Using default HTTP version",
+		"timestamp": 1664244836300
+	},
+	{
+		"name": "TEXT",
+		"value": "Disable timeout",
+		"timestamp": 1664244836300
+	},
+	{
+		"name": "TEXT",
+		"value": "Enable automatic URL encoding",
+		"timestamp": 1664244836300
+	},
+	{
+		"name": "TEXT",
+		"value": "Enable SSL validation",
+		"timestamp": 1664244836300
+	},
+	{
+		"name": "TEXT",
+		"value": "Enable cookie sending with jar of 1 cookie",
+		"timestamp": 1664244836300
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: INIT => CONNECT handle 0x7000745808; line 1789 (connection #-5000)\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "Connection 3 seems to be dead!\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "The cache now contains 0 members\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "Closing connection 3\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "Added connection 4. The cache now contains 1 members\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "Hostname 127.0.0.1 was found in DNS cache\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "family0 == v4, family1 == v6\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "  Trying 127.0.0.1:8000...\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: CONNECT => CONNECTING handle 0x7000745808; line 1850 (connection #4)\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "Connected to 127.0.0.1 (127.0.0.1) port 8000 (#4)\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: CONNECTING => PROTOCONNECT handle 0x7000745808; line 1982 (connection #4)\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: PROTOCONNECT => DO handle 0x7000745808; line 2003 (connection #4)\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "HEADER_OUT",
+		"value": "GET /ads-id HTTP/1.1\r\nHost: 127.0.0.1:8000\r\nUser-Agent: insomnia/2022.2.1\r\nAccept: */*\r\n\r\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: DO => DID handle 0x7000745808; line 2077 (connection #4)\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: DID => PERFORMING handle 0x7000745808; line 2196 (connection #4)\n",
+		"timestamp": 1664244836302
+	},
+	{
+		"name": "TEXT",
+		"value": "Mark bundle as not supporting multiuse\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "HTTP 1.1 or later with persistent connection\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "HTTP/1.1 307 Temporary Redirect\r\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "date: Tue, 27 Sep 2022 02:13:56 GMT\r\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "server: uvicorn\r\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "content-length: 0\r\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "location: http://127.0.0.1:8000/ads-id/\r\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "\r\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "multi_done\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "Connection #4 to host 127.0.0.1 left intact\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "Issue another request to this URL: 'http://127.0.0.1:8000/ads-id/'\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: PERFORMING => CONNECT handle 0x7000745808; line 2372 (connection #-5000)\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "Found bundle for host 127.0.0.1: 0x70036fde48 [serially]\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "Can not multiplex, even if we wanted to!\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "Re-using existing connection! (#4) with host 127.0.0.1\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "Connected to 127.0.0.1 (127.0.0.1) port 8000 (#4)\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: CONNECT => DO handle 0x7000745808; line 1843 (connection #4)\n",
+		"timestamp": 1664244836306
+	},
+	{
+		"name": "HEADER_OUT",
+		"value": "GET /ads-id/ HTTP/1.1\r\nHost: 127.0.0.1:8000\r\nUser-Agent: insomnia/2022.2.1\r\nAccept: */*\r\n\r\n",
+		"timestamp": 1664244836307
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: DO => DID handle 0x7000745808; line 2077 (connection #4)\n",
+		"timestamp": 1664244836307
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: DID => PERFORMING handle 0x7000745808; line 2196 (connection #4)\n",
+		"timestamp": 1664244836307
+	},
+	{
+		"name": "TEXT",
+		"value": "Mark bundle as not supporting multiuse\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "TEXT",
+		"value": "HTTP 1.1 or later with persistent connection\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "HTTP/1.1 200 OK\r\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "date: Tue, 27 Sep 2022 02:13:56 GMT\r\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "server: uvicorn\r\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "content-length: 15\r\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "content-type: application/json\r\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "\r\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "TEXT",
+		"value": "Received 15 B chunk",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: PERFORMING => DONE handle 0x7000745808; line 2395 (connection #4)\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "TEXT",
+		"value": "multi_done\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "TEXT",
+		"value": "Connection #4 to host 127.0.0.1 left intact\n",
+		"timestamp": 1664244836311
+	},
+	{
+		"name": "TEXT",
+		"value": "Expire cleared (transfer 0x7000745808)\n",
+		"timestamp": 1664244836311
+	}
+]
