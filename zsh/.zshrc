@@ -3,10 +3,8 @@ source "$HOME/.dotfiles/zsh/secrets"
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
-# shellcheck disable=SC2034
-COMPLETION_WAITING_DOTS="true"
-# shellcheck disable=SC2034
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+export COMPLETION_WAITING_DOTS="true"
+export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # zsh-nvm (must set before loading plugins)
 export NVM_LAZY_LOAD=true
@@ -98,9 +96,7 @@ export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/zlib/lib/pkgconfig"
 
 # Go vars
 export GOPATH="$HOME/golang"
-export GOROOT="${BREW_PREFIX}/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$GOROOT/bin"
 
 # misc
 export PATH="$PATH:/usr/local/sbin"
@@ -120,7 +116,6 @@ export HOMEBREW_NO_ENV_HINTS="true"
 # pico sdk
 export PICO_SDK_PATH="$HOME/repos/pico-sdk"
 
-
 # Python
 export PATH="$PATH:/Users/rwwiv/.local/bin"
 
@@ -129,6 +124,9 @@ export PATH="$PATH:/Users/rwwiv/Library/Python/2*/bin"
 
 # Python3 pip
 export PATH="$PATH:/Users/rwwiv/Library/Python/3*/bin"
+
+# esp-rs
+. "$HOME/export-esp.sh"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -155,9 +153,12 @@ _evalcache "starship" "init" "zsh"
 # export LDFLAGS="-L${BREW_PREFIX}/opt/libxml2/lib ${LDFLAGS}"
 # export CPPFLAGS="-I${BREW_PREFIX}/opt/libxml2/include ${CPPFLAGS}"
 
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-_evalcache "jenv" "init" "-"
+# sdkman
+export SDKMAN_DIR="${BREW_PREFIX}/opt/sdkman-cli/libexec"
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+# avr-gcc 8
+export PATH="${BREW_PREFIX}/opt/avr-gcc@8/bin:$PATH"
 
 # aliases
 alias zshconfig="code ~/.zshrc"

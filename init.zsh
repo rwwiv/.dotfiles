@@ -107,10 +107,9 @@ if ! (type brew &>/dev/null); then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     if [ "$(grep -c "GITHUB_API_TOKEN" "$DOTFILES_DIR/zsh/secrets")" -eq 0 ]; then
         notice "$NOTICE_TITLE" "Ready for Homebrew GitHub token"
-        read -rs "homebrew_github_api_tokenl?Paste token here: "; echo ""
+        read -rs "homebrew_github_api_token?Paste token here: "; echo ""
         echo "export HOMEBREW_GITHUB_API_TOKEN=\"$homebrew_github_api_token\"" >> "$DOTFILES_DIR/zsh/secrets"
     fi
-
 else
     msg "Updating homebrew"
     brew update
