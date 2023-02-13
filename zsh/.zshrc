@@ -61,7 +61,8 @@ minify_img() {
   magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
 }
 
-BREW_PREFIX="$(brew --prefix)"
+# Set homebrew prefix once
+if type brew &>/dev/null; then BREW_PREFIX="$(brew --prefix)"; fi
 
 # manpath
 export MANPATH="${BREW_PREFIX}/man:$MANPATH"
@@ -78,40 +79,6 @@ fi
 
 # iterm2
 [ -f "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
-
-# openssl
-export DYLD_FALLBACK_LIBRARY_PATH="${BREW_PREFIX}/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH"
-export PATH="${BREW_PREFIX}/opt/openssl@3/bin:$PATH"
-export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/openssl@3/lib"
-export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/openssl@3/include"
-
-# zlib
-export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/zlib/lib"
-export CFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/zlib/include"
-export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/zlib/lib/pkgconfig"
-
-# xcrun
-# export LDFLAGS="$LDFLAGS -L$(xcrun --show-sdk-path)/usr/lib"
-# export CPPFLAGS="$CPPFLAGS -I$(xcrun --show-sdk-path)/usr/include"
-
-# Go vars
-export GOPATH="$HOME/golang"
-export PATH="$PATH:$GOPATH/bin"
-
-# misc
-export PATH="$PATH:/usr/local/sbin"
-
-#llvm
-export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
-export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
-export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
-
-# postgres
-export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"
-export PATH="${BREW_PREFIX}/opt/postgresql@14/bin:$PATH"
-
-# homebrew
-export HOMEBREW_NO_ENV_HINTS="true"
 
 # pico sdk
 export PICO_SDK_PATH="$HOME/repos/pico-sdk"
@@ -133,9 +100,59 @@ export NVM_DIR="$HOME/.nvm"
 # Keep JIC, but load nvm using zsh-nvm which can lazy load nvm
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 
+if type brew &>/dev/null; then
+  # openssl
+  export DYLD_FALLBACK_LIBRARY_PATH="${BREW_PREFIX}/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+  export PATH="${BREW_PREFIX}/opt/openssl@3/bin:$PATH"
+  export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/openssl@3/lib"
+  export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/openssl@3/include"
+
+  # zlib
+  export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/zlib/lib"
+  export CFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/zlib/include"
+  export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/zlib/lib/pkgconfig"
+
+  # xcrun
+  # export LDFLAGS="$LDFLAGS -L$(xcrun --show-sdk-path)/usr/lib"
+  # export CPPFLAGS="$CPPFLAGS -I$(xcrun --show-sdk-path)/usr/include"
+
+  # Go vars
+  export GOPATH="$HOME/golang"
+  export PATH="$PATH:$GOPATH/bin"
+
+  # misc
+  export PATH="$PATH:/usr/local/sbin"
+
+  #llvm
+  export PATH="${BREW_PREFIX}/opt/llvm/bin:$PATH"
+  export LDFLAGS="$LDFLAGS -L${BREW_PREFIX}/opt/llvm/lib"
+  export CPPFLAGS="$CPPFLAGS -I${BREW_PREFIX}/opt/llvm/include"
+
+  # postgres
+  export PATH="${BREW_PREFIX}/opt/libpq/bin:$PATH"
+  export PATH="${BREW_PREFIX}/opt/postgresql@14/bin:$PATH"
+
+  # homebrew
+  export HOMEBREW_NO_ENV_HINTS="true"
+
+  # avr-gcc 8
+  export PATH="${BREW_PREFIX}/opt/avr-gcc@8/bin:$PATH"
+
+  # gnu tools
+  # for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
+  # for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
+
+  for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH="$mandir:$MANPATH"; done
+  for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH="$bindir:$PATH"; done
+
+  # sdkman
+  export SDKMAN_DIR="${BREW_PREFIX}/opt/sdkman-cli/libexec"
+  [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+fi
+
 # pyenv
 _evalcache "pyenv" "init" "-"
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+if type brew &>/dev/null; then alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'; fi
 
 # direnv
 _evalcache "direnv" "hook" "zsh"
@@ -147,19 +164,6 @@ _evalcache "thefuck" "--alias"
 export STARSHIP_LOG="error"
 _evalcache "starship" "init" "zsh"
 
-# # libxml2
-# export PATH="${BREW_PREFIX}/opt/libxml2/bin:$PATH"
-# export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/libxml2/lib/pkgconfig"
-# export LDFLAGS="-L${BREW_PREFIX}/opt/libxml2/lib ${LDFLAGS}"
-# export CPPFLAGS="-I${BREW_PREFIX}/opt/libxml2/include ${CPPFLAGS}"
-
-# sdkman
-export SDKMAN_DIR="${BREW_PREFIX}/opt/sdkman-cli/libexec"
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-
-# avr-gcc 8
-export PATH="${BREW_PREFIX}/opt/avr-gcc@8/bin:$PATH"
-
 # aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
@@ -169,14 +173,7 @@ alias reloadzsh="exec zsh"
 # autocomplete
 autoload -Uz compinit && compinit
 
-# gnu tools
-# for bindir in "${BREW_PREFIX}/opt/"*"/bin"; do export PATH="$bindir:$PATH"; done
-# for mandir in "${BREW_PREFIX}/opt/"*"/share/man/man1"; do export MANPATH="$mandir:$MANPATH"; done
-
-for mandir in "${BREW_PREFIX}/opt/"*"/libexec/gnuman"; do export MANPATH="$mandir:$MANPATH"; done
-for bindir in "${BREW_PREFIX}/opt/"*"/libexec/gnubin"; do export PATH="$bindir:$PATH"; done
-
-[ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh"
+[ -f "${ZSH_CUSTOM}/.fzf.zsh" ] && source "${ZSH_CUSTOM}/.fzf.zsh"
 
 # KEEP AT END
 # export any unexported $PATH stuff
