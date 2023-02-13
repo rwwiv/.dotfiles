@@ -126,7 +126,7 @@ export PATH="$PATH:/Users/rwwiv/Library/Python/2*/bin"
 export PATH="$PATH:/Users/rwwiv/Library/Python/3*/bin"
 
 # esp-rs
-. "$HOME/export-esp.sh"
+[[ -f "$HOME/export-esp.sh" ]] && . "$HOME/export-esp.sh"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
