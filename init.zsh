@@ -170,17 +170,18 @@ git config --global user.name "$git_name"
 git config --global user.signingKey "$git_gpg_fp"
 
 msg "Installing fonts"
+mkdir ./fonts
 # Hack Nerd Mono
-curl -L -o hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
-rm -rf ./hack
+curl -L -o ./fonts/hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
+[[ -d ./fonts/hack ]] && rm -rf ./fonts/hack
 unzip ./hack.zip -d hack
-rm hack/*Windows*
-cp hack/*Mono.ttf "$HOME/Library/Fonts/"
+rm ./fonts/hack/*Windows*
+cp ./fonts/hack/*Mono.ttf "$HOME/Library/Fonts/"
 # Fira Code
-curl -L -o fira.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
-rm -rf ./fira
-unzip ./fira.zip -d fira
-cp fira/variable_ttf/* "$HOME/Library/Fonts/"
+curl -L -o ./fonts/fira.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+[[ -d ./fonts/fira ]] && rm -rf ./fonts/fira
+unzip ./fonts/fira.zip -d fira
+cp ./fonts/fira/variable_ttf/* "$HOME/Library/Fonts/"
 
 msg "Misc changes"
 # iterm2

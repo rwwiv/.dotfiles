@@ -1,2 +1,5 @@
 test.zsh
 zsh/secrets
+mackup/.gnupg/trustdb.gpg
+fonts/
+default.profraw
