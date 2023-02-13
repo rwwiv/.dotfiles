@@ -63,6 +63,8 @@ if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
     read -k1 -q "?Press any key to continue..." || true
 fi
 
+# Make sure git submodules are initialized
+git submodule update --init --recursive
 
 # create temp SUDO_ASKPASS
 export SUDO_ASKPASS="$DOTFILES_DIR/tmp_askpass"
