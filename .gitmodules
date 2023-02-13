@@ -1,12 +1,9 @@
-[submodule "multi-evalcache"]
-	path = zsh/custom/plugins/multi-evalcache
-	url = git@github.com:rwwiv/multi-evalcache.git
 [submodule "zsh-autosuggestions"]
 	path = zsh/custom/plugins/zsh-autosuggestions
-	url = git@github.com:zsh-users/zsh-autosuggestions.git
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule "zsh-nvm"]
 	path = zsh/custom/plugins/zsh-nvm
-	url = git@github.com:lukechilds/zsh-nvm.git
+	url = https://github.com/lukechilds/zsh-nvm.git
 [submodule "zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = zsh/custom/plugins/zsh-syntax-highlighting
-	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
