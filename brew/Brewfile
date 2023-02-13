@@ -198,7 +198,6 @@ cask "ngrok"
 cask "notion"
 cask "numi"
 cask "obs"
-cask "parallels"
 cask "plex"
 cask "pocket-casts"
 cask "pop"
@@ -209,7 +208,6 @@ cask "qlmarkdown"
 cask "qlstephen"
 cask "qlvideo"
 cask "qmk-toolbox"
-cask "quicklook-json"
 cask "quicklookase"
 cask "rectangle"
 cask "signal"
@@ -244,10 +242,8 @@ mas "iHosts", id: 1102004240
 mas "Keynote", id: 409183694
 mas "Markoff", id: 1084713122
 mas "Messenger", id: 1480068668
-mas "Microsoft OneNote", id: 784801555
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Playgrounds", id: 1496833156
 mas "UpNote", id: 1398373917
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
