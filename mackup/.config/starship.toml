@@ -5,10 +5,11 @@ add_newline = false
 command_timeout = 200
 format = """
 $directory\
-$fill\
+
 $git_branch\
 $git_metrics\
 $git_status\
+$fill\
 $golang\
 $rust\
 $c\
@@ -44,11 +45,11 @@ truncation_length = 3
 repo_root_style = "bold italic cyan"
 
 [git_branch]
-format = '([\[]()[ $symbol$branch]($style) )'
+format = '([$symbol$branch]($style) )'
 style = "bold white"
 
 [git_status]
-format = '([\($all_status$ahead_behind\)]($style) )[\]]()'
+format = '([\($all_status$ahead_behind\)]($style ))'
 
 [git_metrics]
 disabled = false
