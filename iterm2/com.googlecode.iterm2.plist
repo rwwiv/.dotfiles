@@ -20,6 +20,8 @@
 	<string>94CE8AEC-7D3D-4181-B3BF-583E4E2FF55E</string>
 	<key>DimOnlyText</key>
 	<true/>
+	<key>DisableWindowSizeSnap</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EscapeShellCharsWithBackslash</key>

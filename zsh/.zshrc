@@ -1,68 +1,54 @@
 # secrets
 source "$HOME/.dotfiles/zsh/secrets"
 
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CUSTOM="$HOME/.dotfiles/zsh/custom"
-export COMPLETION_WAITING_DOTS="true"
-export DISABLE_UNTRACKED_FILES_DIRTY="true"
+unsetopt BEEP
 
-# zsh-nvm (must set before loading plugins)
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
-export NVM_AUTO_USE=true
+# antigen
+{
+  source ${HOME}/.antigen.zsh
 
-# shellcheck disable=SC2034
-plugins=(
-  aliases
-  encode64
-  extract
-  git
-  git-flow
-  multi-evalcache
-  rsync
-  safe-paste
-  zsh-nvm
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  zle-line-init
-  z
-)
+  export COMPLETION_WAITING_DOTS="true"
+  export DISABLE_UNTRACKED_FILES_DIRTY="true"
+  export NVM_LAZY_LOAD=true
+  export NVM_COMPLETION=true
+  export NVM_AUTO_USE=true
 
-# run this before oh-my-zsh.sh
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
-# load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+  if type brew &>/dev/null; then
+    BREW_PREFIX="$(brew --prefix)"  # Set homebrew prefix once
+    FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+  fi
+
+  antigen init ${HOME}/.antigenrc
+}
+
 zstyle ':completion:*' menu select
 
 # misc functions
-timezsh() {
-  local shell
-  shell=${1-$SHELL}
-  for _ in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
+{
+  timezsh() {
+    local shell
+    shell=${1-$SHELL}
+    for _ in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+  }
 
-notice() {
-  local title text sound_name
-  title="${1:-"zsh"}"
-  text="${2:-"Check terminal in $TERM_PROGRAM"}"
-  sound_name="${3:-"Ping"}"
-  osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
-}
+  notice() {
+    local title text sound_name
+    title="${1:-"zsh"}"
+    text="${2:-"Check terminal in $TERM_PROGRAM"}"
+    sound_name="${3:-"Ping"}"
+    osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
+  }
 
-minify_img() {
-  local source dest
-  source="$1"
-  dest="$2"
-  [ -z $source ] && echo "Missing source" && return 1
-  [ -z $dest ] && dest="$source"
-  magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
+  minify_img() {
+    local source dest
+    source="$1"
+    dest="$2"
+    [ -z $source ] && echo "Missing source" && return 1
+    [ -z $dest ] && dest="$source"
+    magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
+  }
 }
-
-# Set homebrew prefix once
-if type brew &>/dev/null; then BREW_PREFIX="$(brew --prefix)"; fi
 
 # manpath
 export MANPATH="${BREW_PREFIX}/man:$MANPATH"
@@ -78,7 +64,7 @@ else
 fi
 
 # iterm2
-[ -f "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
+[[ -f "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 
 # pico sdk
 export PICO_SDK_PATH="$HOME/repos/pico-sdk"
@@ -169,11 +155,10 @@ alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias reloadzsh="exec zsh"
 # alias code="code -n"
+alias clear='clear && printf "\e[3J"';
 
 # autocomplete
 autoload -Uz compinit && compinit
-
-[ -f "${ZSH_CUSTOM}/.fzf.zsh" ] && source "${ZSH_CUSTOM}/.fzf.zsh"
 
 # KEEP AT END
 # export any unexported $PATH stuff
