@@ -67,7 +67,7 @@ fi
 [[ -f "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 
 # pico sdk
-export PICO_SDK_PATH="$HOME/repos/pico-sdk"
+export PICO_SDK_PATH="$HOME/projects/pico-sdk"
 
 # Python
 export PATH="$PATH:/Users/rwwiv/.local/bin"
