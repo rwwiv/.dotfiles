@@ -3,24 +3,20 @@ source "$HOME/.dotfiles/zsh/secrets"
 
 unsetopt BEEP
 
+if type brew &>/dev/null; then
+  BREW_PREFIX="$(brew --prefix)"  # Set homebrew prefix once
+  FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+fi
+
+export COMPLETION_WAITING_DOTS="true"
+export DISABLE_UNTRACKED_FILES_DIRTY="true"
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+export NVM_AUTO_USE=true
+
 # antigen
-{
-  source "${HOME}"/.antigen.zsh
-
-  export COMPLETION_WAITING_DOTS="true"
-  export DISABLE_UNTRACKED_FILES_DIRTY="true"
-  export NVM_LAZY_LOAD=true
-  export NVM_COMPLETION=true
-  export NVM_AUTO_USE=true
-
-
-  if type brew &>/dev/null; then
-    BREW_PREFIX="$(brew --prefix)"  # Set homebrew prefix once
-    FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
-  fi
-
-  antigen init "${HOME}"/.antigenrc
-}
+source "${HOME}/.dotfiles/zsh/.antigen.zsh"
+antigen init "${HOME}/.dotfiles/zsh/.antigenrc"
 
 zstyle ':completion:*' menu select
 
