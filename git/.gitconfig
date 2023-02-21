@@ -3,7 +3,7 @@
     gpgsign = true
     template = ~/.dotfiles/git/.gitmessage
 [gpg]
-    program = gpg
+    program = gpg2
 [core]
     editor = code --wait
     excludesfile = ~/.dotfiles/git/.gitignore
@@ -23,8 +23,6 @@
     rebase = true
 [init]
     defaultBranch = main
-[credential]
-    helper = osxkeychain
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f

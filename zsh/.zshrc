@@ -5,7 +5,7 @@ unsetopt BEEP
 
 # antigen
 {
-  source ${HOME}/.antigen.zsh
+  source "${HOME}"/.antigen.zsh
 
   export COMPLETION_WAITING_DOTS="true"
   export DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -19,7 +19,7 @@ unsetopt BEEP
     FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
   fi
 
-  antigen init ${HOME}/.antigenrc
+  antigen init "${HOME}"/.antigenrc
 }
 
 zstyle ':completion:*' menu select
@@ -29,7 +29,7 @@ zstyle ':completion:*' menu select
   timezsh() {
     local shell
     shell=${1-$SHELL}
-    for _ in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+    for _ in $(seq 1 10); do /usr/bin/time "$shell" -i -c exit; done
   }
 
   notice() {
@@ -44,8 +44,8 @@ zstyle ':completion:*' menu select
     local source dest
     source="$1"
     dest="$2"
-    [ -z $source ] && echo "Missing source" && return 1
-    [ -z $dest ] && dest="$source"
+    [ -z "$source" ] && echo "Missing source" && return 1
+    [ -z "$dest" ] && dest="$source"
     magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
   }
 }

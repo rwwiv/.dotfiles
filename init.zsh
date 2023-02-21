@@ -168,7 +168,7 @@ read -r "git_name?Enter name: "
 read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
 git config --global user.email "$git_email"
 git config --global user.name "$git_name"
-git config --global user.signingKey "$git_gpg_fp"
+git config --global user.signingkey "$git_gpg_fp"
 
 msg "Installing fonts"
 mkdir ./fonts
