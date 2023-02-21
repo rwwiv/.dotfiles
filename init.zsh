@@ -124,6 +124,7 @@ msg "Configuring zsh"
 [ -d "$HOME/.oh-my-zsh" ] && rm -rf "$HOME/.oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+ln -s "$DOTFILES_DIR/zsh/.antigenrc" "$HOME/.antigenrc"
 ln -s "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 
 msg "Configuring pyenv"

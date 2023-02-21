@@ -16,7 +16,7 @@ export NVM_AUTO_USE=true
 
 # antigen
 source "${HOME}/.dotfiles/zsh/.antigen.zsh"
-antigen init "${HOME}/.dotfiles/zsh/.antigenrc"
+antigen init "${HOME}/.antigenrc"
 
 zstyle ':completion:*' menu select
 
