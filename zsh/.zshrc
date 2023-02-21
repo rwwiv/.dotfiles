@@ -156,6 +156,7 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias reloadzsh="exec zsh"
 # alias code="code -n"
 alias clear='clear && printf "\e[3J"';
+alias gpg="gpg2"
 
 # autocomplete
 autoload -Uz compinit && compinit

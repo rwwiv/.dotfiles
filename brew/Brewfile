@@ -73,7 +73,6 @@ brew "srt"
 brew "tesseract"
 brew "ffmpeg"
 brew "findutils"
-brew "fish"
 brew "fzf"
 brew "gdk-pixbuf"
 brew "gh"
@@ -82,7 +81,6 @@ brew "git-flow"
 brew "git-lfs"
 brew "gitui"
 brew "gnu-sed"
-brew "gnupg"
 brew "go"
 brew "gobject-introspection"
 brew "gradle"
@@ -103,12 +101,13 @@ brew "libgit2"
 brew "libpq"
 brew "libxml2"
 brew "llvm"
+brew "macchina"
 brew "mackup"
 brew "make"
 brew "mas"
 brew "minicom"
 brew "moreutils"
-brew "neofetch"
+brew "neofetch", args: ["HEAD"]
 brew "neovim"
 brew "nghttp2"
 brew "nginx"
@@ -223,3 +222,19 @@ cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
 cask "zoom"
+mas "Amphetamine", id: 937984704
+mas "Bear", id: 1091189122
+mas "Decompressor", id: 1033480833
+mas "Disk Speed Test", id: 425264550
+mas "Free Ruler", id: 1483172210
+mas "Gifski", id: 1351639930
+mas "iHosts", id: 1102004240
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Markoff", id: 1084713122
+mas "Messenger", id: 1480068668
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "UpNote", id: 1398373917
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
