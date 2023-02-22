@@ -3,7 +3,7 @@
     gpgsign = true
     template = ~/.dotfiles/git/.gitmessage
 [gpg]
-    program = gpg2
+    program = gpg
 [core]
     editor = code --wait
     excludesfile = ~/.dotfiles/git/.gitignore
