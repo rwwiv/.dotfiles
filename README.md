@@ -2,7 +2,7 @@
 
 ## Overview
 
-Dotfiles for William Wernert (@rwwiv)
+MacOS dotfiles for William Wernert (@rwwiv)
 
 ## Project Structure
 
@@ -16,25 +16,18 @@ Dotfiles for William Wernert (@rwwiv)
 
 ## Getting Started
 
-*This project is meant to be used primarily on MacOS, though some Linux interoperability should exist.*
-
 ### Prerequisites
 
-This app assumes you have cloned this repo to `$HOME/.dotfiles`
+The init script assumes you have cloned this repo to `$HOME/.dotfiles`
 
-If you haven't done so, things make break. So you know, do that.
+If you haven't done so, things might break. So you know, do that.
 
-### Pre-install (required)
- - Export gpg key from old machine
- - Export ssh keys from old machine 
+### Pre-install (optional)
+
+- Export gpg key from old machine
+- Export ssh config & keys from old machine
 
 ### Install
- - Run `./init.sh`
-   - The script will ping at points for user input
 
-### Post-install (optional)
- - Set up sync in vscode
- - Log in to Chrome 
- - Log in to Bear
- - Install/set default nvm version
- - Install/set default pyenv version
+- Run `./init.sh`
+  - Note: the script will ping at points for user input

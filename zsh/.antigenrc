@@ -1,4 +1,4 @@
-#! /bin/zsh
+# shellcheck shell=sh
 antigen use "oh-my-zsh"
 
 antigen bundle "aliases"

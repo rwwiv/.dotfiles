@@ -53,13 +53,12 @@ printf '%s\n' "hi - はじめ まして" ""
 
 trap 'exit_trap $? $LINENO' EXIT
 
-read -rs "print_init_checklist?Print init checklist? (y/N) "; echo ""
+read -r "print_init_checklist?Print optional init checklist? (y/N) "; echo ""
 
 if [[ "$print_init_checklist" =~ [yY][eE]?[sS]? ]]; then
     printf "%s\n" \
-        "Pre-install Checklist" \
         " - [ ] Export gpg key(s) from old machine" \
-        " - [ ] Export ssh key(s) from old machine "
+        " - [ ] Export ssh key(s) and config from old machine "
     read -k1 -q "?Press any key to continue..." || true
 fi
 
@@ -91,6 +90,7 @@ msg "Creating .zshrc secrets file"
 echo "#!/bin/zsh" > "$DOTFILES_DIR/zsh/secrets"
 
 msg "Making UI changes"
+# disable desktop
 defaults write com.apple.finder CreateDesktop false
 killall Finder
 
@@ -143,15 +143,12 @@ set +e
 source "$HOME/.zshrc"
 set -e
 
+notice "$NOTICE_TITLE" "Ready to copy ssh config and keys"
+read -k1 -q "?Press any key to continue..." || true
+
 msg "Configuring nvm"
 nvm install "lts/*"
 nvm use default
-
-msg "Configuring ssh"
-if [ -f "$HOME/.ssh/.config" ]; then
-    echo "" >>"$DOTFILES_DIR/mackup/.ssh/config"
-    cat "$HOME/.ssh/config" >>"$DOTFILES_DIR/mackup/.ssh/config"
-fi
 
 msg "Restoring mackup backup"
 [[ -f "$HOME/.mackup.cfg" ]] && rm -f "$HOME/.mackup.cfg"
@@ -161,22 +158,27 @@ mackup restore -f
 msg "Configuring git"
 printf '%s\n' '[include]' 'path = ~/.dotfiles/git/.gitconfig' >"$HOME/.gitconfig"
 
-notice "$NOTICE_TITLE" "Ready for gpg key import"
-echo "Import gpg key now"
-read -k1 -q "?Press any key to continue..." || true
-read -r "git_email?Enter email: "
+notice "$NOTICE_TITLE" "Ready for git name & email"
+
 read -r "git_name?Enter name: "
-read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
-git config --global user.email "$git_email"
+read -r "git_email?Enter email: "
 git config --global user.name "$git_name"
-git config --global user.signingkey "$git_gpg_fp"
+git config --global user.email "$git_email"
+
+read -r "use_gpg?Import gpg signing key? (y/N) "; echo ""
+if [["$use_gpg" =~ [yY][eE]?[sS]? ]]; then
+    echo "Import gpg key now"
+    read -k1 -q "?Press any key to continue..." || true
+    read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
+    git config --global user.signingkey "$git_gpg_fp"
+fi
 
 msg "Installing fonts"
 mkdir ./fonts
 # Hack Nerd Mono
 curl -L -o ./fonts/hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
 [[ -d ./fonts/hack ]] && rm -rf ./fonts/hack
-unzip ./hack.zip -d hack
+unzip ./fonts/hack.zip -d hack
 rm ./fonts/hack/*Windows*
 cp ./fonts/hack/*Mono.ttf "$HOME/Library/Fonts/"
 # Fira Code
@@ -184,21 +186,15 @@ curl -L -o ./fonts/fira.zip https://github.com/tonsky/FiraCode/releases/download
 [[ -d ./fonts/fira ]] && rm -rf ./fonts/fira
 unzip ./fonts/fira.zip -d fira
 cp ./fonts/fira/variable_ttf/* "$HOME/Library/Fonts/"
+# Dank Mono
+curl -L -o ./fonts/dank.zip https://github.com/cancng/fonts/raw/master/DankMono.zip
+[[ -d ./fonts/dank ]] && rm -rf ./fonts/dank
+unzip ./fonts/dank.zip -d Dank
+cp ./fonts/dank/*.otf "$HOME/Library/Fonts/"
 
 msg "Misc changes"
 # iterm2
 [ -f "$HOME/.hushlogin" ] || touch "$HOME/.hushlogin"
 
 # END
-read -rs "print_end_checklist?Print ending checklist? (y/N) "; echo ""
-if [[ "$print_end_checklist" =~ [yY][eE]?[sS]? ]]; then
-    printf "%s\n" \
-        "Post-install Checklist" \
-        " - [ ] Set up sync in vscode" \
-        " - [ ] Log in to Chrome " \
-        " - [ ] Log in to Bear" \
-        " - [ ] Import iterm2 profiles from $DOTFILES_DIR/iterm2/Profiles.json"
-    read -k1 -q "?Press any key to continue..." || true
-fi
-
 printf '%s\n' "goodbye - さようなら" ""
