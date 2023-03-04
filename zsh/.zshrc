@@ -3,6 +3,8 @@ source "$HOME/.dotfiles/zsh/secrets"
 
 unsetopt BEEP
 
+export ZSH_CUSTOM="${HOME}/.dotfiles/zsh/custom"
+
 if type brew &>/dev/null; then
   BREW_PREFIX="$(brew --prefix)"  # Set homebrew prefix once
   FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"

@@ -1,5 +1,5 @@
-test.zsh
+# Generated files + directories
 zsh/secrets
-mackup/.gnupg/trustdb.gpg
 fonts/
 default.profraw
+zsh/custom/plugins/poetry
