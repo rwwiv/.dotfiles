@@ -14,7 +14,7 @@ MacOS dotfiles for William Wernert (@rwwiv)
 
 `/init.sh` - Script to init a new system
 
-## Getting Started
+## How To Install
 
 ### Prerequisites
 
