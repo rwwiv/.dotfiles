@@ -23,7 +23,7 @@ function __single_ec() {
   "$@" >>"$cacheFile"
 }
 
-# Usage: __single_ec <command> <arguments ...>
+# Usage: _multi_ec <command> <arguments ...>
 function _multi_ec() {
   local cacheFile="$ZSH_MULTI_EVALCACHE_DIR/init-${1##*/}.zsh"
   local idString="# $*"
