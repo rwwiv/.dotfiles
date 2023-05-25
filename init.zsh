@@ -143,6 +143,14 @@ set +e
 source "$HOME/.zshrc"
 set -e
 
+msg "Starting colima"
+colima start
+
+msg "Configuring docker buildx"
+mkdir -p ~/.docker/cli-plugins
+ln -sfn "${BREW_PREFIX}/opt/docker-buildx/bin/docker-buildx" ~/.docker/cli-plugins/docker-buildx
+docker buildx install
+
 notice "$NOTICE_TITLE" "Ready to copy ssh config and keys"
 read -k1 -q "?Press any key to continue..." || true
 

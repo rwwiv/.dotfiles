@@ -37,15 +37,6 @@ zstyle ':completion:*' menu select
     sound_name="${3:-"Ping"}"
     osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
   }
-
-  minify_img() {
-    local source dest
-    source="$1"
-    dest="$2"
-    [ -z "$source" ] && echo "Missing source" && return 1
-    [ -z "$dest" ] && dest="$source"
-    magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
-  }
 }
 
 # manpath
@@ -58,7 +49,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vi'
 else
-  export EDITOR='code'
+  export EDITOR='code --wait'
 fi
 
 # iterm2
@@ -66,15 +57,6 @@ fi
 
 # pico sdk
 export PICO_SDK_PATH="$HOME/projects/pico-sdk"
-
-# Python
-export PATH="$PATH:/Users/rwwiv/.local/bin"
-
-# Python2 pip
-export PATH="$PATH:/Users/rwwiv/Library/Python/2*/bin"
-
-# Python3 pip
-export PATH="$PATH:/Users/rwwiv/Library/Python/3*/bin"
 
 # esp-rs
 [[ -f "$HOME/export-esp.sh" ]] && . "$HOME/export-esp.sh"
@@ -85,6 +67,33 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 
 if type brew &>/dev/null; then
+  # brew dependent funcitons
+  {
+    minify_img() {
+      local source dest
+      source="$1"
+      dest="$2"
+      [ -z "$source" ] && echo "Missing source" && return 1
+      [ -z "$dest" ] && dest="$source"
+
+      magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
+    }
+
+    create_dev_db() {
+      local user db
+      user="$1"
+      pass="$2"
+      db="$3"
+      [ -z "$user" ] && echo "Missing user" && return 1
+      [ -z "$pass" ] && echo "Missing password" && return 1
+      [ -z "$db" ] && db="$user"
+
+      psql -c "create role ${user} with createdb encrypted password '${pass}' login;"
+      psql -c "alter user ${user} superuser;"
+      psql -c "create database ${db} with owner ${user};"
+    }
+  }
+
   # openssl
   export DYLD_FALLBACK_LIBRARY_PATH="${BREW_PREFIX}/opt/openssl/lib:$DYLD_FALLBACK_LIBRARY_PATH"
   export PATH="${BREW_PREFIX}/opt/openssl@3/bin:$PATH"
