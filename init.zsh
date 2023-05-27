@@ -175,7 +175,7 @@ git config --global user.name "$git_name"
 git config --global user.email "$git_email"
 
 read -r "use_gpg?Import gpg signing key? (y/N) "; echo ""
-if [["$use_gpg" =~ [yY][eE]?[sS]? ]]; then
+if [[ "$use_gpg" =~ [yY][eE]?[sS]? ]]; then
     echo "Import gpg key now"
     read -k1 -q "?Press any key to continue..." || true
     read -rs "git_gpg_fp?Enter gpg key fingerprint: "; echo ""
