@@ -194,7 +194,7 @@ if [[ ! -d ./fonts/hack ]]; then
     curl -L -o ./fonts/hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
     unzip ./fonts/hack.zip -d ./fonts/hack
 fi
-rm ./fonts/hack/*Windows*
+find ./fonts/hack -iname '*Windows*' | grep . && rm -rf ./fonts/hack/*Windows*
 cp ./fonts/hack/*Mono.ttf "$HOME/Library/Fonts/"
 
 # Fira Code
