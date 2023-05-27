@@ -188,21 +188,27 @@ fi
 
 msg "Installing fonts"
 mkdir -p ./fonts
+
 # Hack Nerd Mono
-curl -L -o ./fonts/hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
-[[ -d ./fonts/hack ]] && rm -rf ./fonts/hack
-unzip ./fonts/hack.zip -d ./fonts/hack
+if [[ ! -d ./fonts/hack ]]; then
+    curl -L -o ./fonts/hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
+    unzip ./fonts/hack.zip -d ./fonts/hack
+fi
 rm ./fonts/hack/*Windows*
 cp ./fonts/hack/*Mono.ttf "$HOME/Library/Fonts/"
+
 # Fira Code
-curl -L -o ./fonts/fira.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
-[[ -d ./fonts/fira ]] && rm -rf ./fonts/fira
-unzip ./fonts/fira.zip -d ./fonts/fira
+if [[ ! -d ./fonts/fira ]]; then
+    curl -L -o ./fonts/fira.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+    unzip ./fonts/fira.zip -d ./fonts/fira
+fi
 cp ./fonts/fira/variable_ttf/* "$HOME/Library/Fonts/"
+
 # Dank Mono
-curl -L -o ./fonts/dank.zip https://github.com/cancng/fonts/raw/master/DankMono.zip
-[[ -d ./fonts/dank ]] && rm -rf ./fonts/dank
-unzip ./fonts/dank.zip -d ./fonts/dank
+if [[ ! -d ./fonts/dank ]]; then
+    curl -L -o ./fonts/dank.zip https://github.com/cancng/fonts/raw/master/DankMono.zip
+    unzip ./fonts/dank.zip -d ./fonts/dank
+fi
 cp ./fonts/dank/*.otf "$HOME/Library/Fonts/"
 
 msg "Misc changes"
