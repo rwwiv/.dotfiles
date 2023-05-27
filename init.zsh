@@ -40,6 +40,7 @@ notice() {
     text="${2:-"Check terminal in $TERM_PROGRAM"}"
     sound_name="${3:-"Ping"}"
     osascript -e "display notification \"$text\" with title \"$title\" sound name \"$sound_name\""
+    msg "$text"
 }
 
 msg() {
@@ -121,12 +122,15 @@ msg "Installing from Brewfile"
 brew bundle --file="$DOTFILES_DIR/brew/Brewfile"
 
 msg "Configuring zsh"
-[ -d "$HOME/.oh-my-zsh" ] && rm -rf "$HOME/.oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
 mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-[[ -f "$HOME/.antigenrc" ]] && rm "$HOME/.antigenrc"
-ln -s "$DOTFILES_DIR/zsh/.antigenrc" "$HOME/.antigenrc"
 ln -s "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+
+mv "$HOME/.antigenrc" "$HOME/.antigenrc.bak"
+ln -s "$DOTFILES_DIR/zsh/.antigenrc" "$HOME/.antigenrc"
 
 msg "Configuring pyenv"
 pyenv versions | grep -m1 "${PYENV_VER}" &>/dev/null || pyenv install "${PYENV_VER}:latest"
@@ -183,22 +187,22 @@ if [[ "$use_gpg" =~ [yY][eE]?[sS]? ]]; then
 fi
 
 msg "Installing fonts"
-mkdir ./fonts
+mkdir -p ./fonts
 # Hack Nerd Mono
 curl -L -o ./fonts/hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/Hack.zip
 [[ -d ./fonts/hack ]] && rm -rf ./fonts/hack
-unzip ./fonts/hack.zip -d hack
+unzip ./fonts/hack.zip -d ./fonts/hack
 rm ./fonts/hack/*Windows*
 cp ./fonts/hack/*Mono.ttf "$HOME/Library/Fonts/"
 # Fira Code
 curl -L -o ./fonts/fira.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
 [[ -d ./fonts/fira ]] && rm -rf ./fonts/fira
-unzip ./fonts/fira.zip -d fira
+unzip ./fonts/fira.zip -d ./fonts/fira
 cp ./fonts/fira/variable_ttf/* "$HOME/Library/Fonts/"
 # Dank Mono
 curl -L -o ./fonts/dank.zip https://github.com/cancng/fonts/raw/master/DankMono.zip
 [[ -d ./fonts/dank ]] && rm -rf ./fonts/dank
-unzip ./fonts/dank.zip -d Dank
+unzip ./fonts/dank.zip -d ./fonts/dank
 cp ./fonts/dank/*.otf "$HOME/Library/Fonts/"
 
 msg "Misc changes"
