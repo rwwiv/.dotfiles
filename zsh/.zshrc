@@ -1,5 +1,10 @@
 # secrets
 source "$HOME/.dotfiles/zsh/secrets"
+source "$HOME/.dotfiles/zsh/local.zsh"
+
+# set max open files
+FD_LIMIT=10240
+ulimit -S -n $FD_LIMIT
 
 unsetopt BEEP
 
@@ -12,9 +17,9 @@ fi
 
 export COMPLETION_WAITING_DOTS="true"
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
-export NVM_AUTO_USE=true
+# export NVM_LAZY_LOAD=true
+# export NVM_COMPLETION=true
+# export NVM_AUTO_USE=true
 
 # antigen
 source "${HOME}/.dotfiles/zsh/.antigen.zsh"
@@ -62,12 +67,12 @@ export PICO_SDK_PATH="$HOME/projects/pico-sdk"
 [[ -f "$HOME/export-esp.sh" ]] && . "$HOME/export-esp.sh"
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 # Keep JIC, but load nvm using zsh-nvm which can lazy load nvm
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 
 if type brew &>/dev/null; then
-  # brew dependent funcitons
+  # brew dependent functions
   {
     minify_img() {
       local source dest
@@ -76,7 +81,7 @@ if type brew &>/dev/null; then
       [ -z "$source" ] && echo "Missing source" && return 1
       [ -z "$dest" ] && dest="$source"
 
-      magick "$1" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$2"
+      magick "$source" -sampling-factor 4:2:0 -quality 95% -resize 500 -define jpeg:dct-method=float "$dest"
     }
 
     create_dev_db() {
@@ -91,6 +96,19 @@ if type brew &>/dev/null; then
       psql -c "create role ${user} with createdb encrypted password '${pass}' login;"
       psql -c "alter user ${user} superuser;"
       psql -c "create database ${db} with owner ${user};"
+    }
+
+    use_go() {
+      local version
+      version="$1"
+      if [[ "$version" == "" ]] || [[ "$version" == "default" ]]; then {
+        version=""
+      }; else {
+        version="@${version}"
+      }; fi
+
+      export GOROOT="${BREW_PREFIX}/opt/go${version}/libexec"
+      export PATH="$GOROOT/bin:$PATH"
     }
   }
 
@@ -111,7 +129,9 @@ if type brew &>/dev/null; then
 
   # Go vars
   export GOPATH="$HOME/golang"
-  export PATH="$PATH:$GOPATH/bin"
+  export GOROOT="${BREW_PREFIX}/opt/go/libexec"
+  export PATH="$GOPATH/bin:$PATH"
+  export PATH="$GOROOT/bin:$PATH"
 
   # misc
   export PATH="$PATH:/usr/local/sbin"
@@ -141,33 +161,59 @@ if type brew &>/dev/null; then
   # sdkman
   export SDKMAN_DIR="${BREW_PREFIX}/opt/sdkman-cli/libexec"
   [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+  # lunarvim
+  export PATH="$HOME/.local/bin":"$PATH"
+
+  # dotnet
+  export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+
+  # gcloud
+  source "${BREW_PREFIX}/share/google-cloud-sdk/path.zsh.inc"
+  source "${BREW_PREFIX}/share/google-cloud-sdk/completion.zsh.inc"
+
+  if command -v drone &> /dev/null; then
+    export DRONE_SERVER=https://drone.grafana.net
+    export DRONE_TOKEN=HpcEIzIbty1ummbXfdqG3CfB0E2ozOBB
+  fi
+
+  # aliases
+  alias zshconfig="code ~/.zshrc"
+  alias ohmyzsh="code ~/.oh-my-zsh"
+  alias reloadzsh="exec zsh"
+  # alias code="code -n"
+  alias gpg="gpg2"
+  alias lg="lazygit"
+
+  # fnm
+  eval "$(fnm env)" > /dev/null
+
+  # pyenv
+  _evalcache "pyenv" "init" "-"
+  if type brew &>/dev/null; then alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'; fi
+
+  # direnv
+  _evalcache "direnv" "hook" "zsh"
+
+  # thefuck
+  _evalcache "thefuck" "--alias"
+
+  # starship
+  export STARSHIP_LOG="error"
+  _evalcache "starship" "init" "zsh"
+
+  alias jsonnet="jrsonnet"
 fi
 
-# pyenv
-_evalcache "pyenv" "init" "-"
-if type brew &>/dev/null; then alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'; fi
-
-# direnv
-_evalcache "direnv" "hook" "zsh"
-
-# thefuck
-_evalcache "thefuck" "--alias"
-
-# starship
-export STARSHIP_LOG="error"
-_evalcache "starship" "init" "zsh"
-
 # aliases
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias reloadzsh="exec zsh"
-# alias code="code -n"
 alias clear='clear && printf "\e[3J"';
-alias gpg="gpg2"
 
 # autocomplete
+fpath+="/opt/homebrew/share/zsh/site-functions"
 autoload -Uz compinit && compinit
+
 
 # KEEP AT END
 # export any unexported $PATH stuff
 typeset -U PATH
+

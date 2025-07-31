@@ -3,3 +3,4 @@ zsh/secrets
 fonts/
 default.profraw
 zsh/custom/plugins/poetry
+mackup/.kube

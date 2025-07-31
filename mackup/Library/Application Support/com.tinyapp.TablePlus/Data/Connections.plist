@@ -40,23 +40,25 @@
 		<key>GroupID</key>
 		<string></string>
 		<key>HideFunctionSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ID</key>
 		<string>333F2021-DCAA-4184-BADF-415535E25C9A</string>
 		<key>ItemGroups</key>
 		<array/>
-		<key>LazyLoadItems</key>
-		<integer>0</integer>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
 		<key>LimitQueryRowsReturned</key>
 		<integer>0</integer>
 		<key>LimitRowsReturned</key>
 		<integer>0</integer>
 		<key>OtherOptions</key>
 		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
 		<key>RecentUsedBackupDriverName</key>
 		<string></string>
 		<key>RecentUsedBackupGzip</key>
-		<integer>0</integer>
+		<false/>
 		<key>RecentUsedBackupOptions</key>
 		<array/>
 		<key>RecentUsedRestoreOptions</key>
@@ -82,6 +84,8 @@
 		</dict>
 		<key>ServerAddress</key>
 		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
 		<key>ServerPasswordMode</key>
 		<integer>0</integer>
 		<key>ServerPort</key>
@@ -91,13 +95,15 @@
 		<key>ServerUser</key>
 		<string></string>
 		<key>ShowRecentlySection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSequenceSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSystemSchemas</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowUserDefineSection</key>
-		<integer>0</integer>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
 		<key>StartupCommands</key>
 		<string></string>
 		<key>TlsKeyName</key>
@@ -109,11 +115,11 @@
 			<string></string>
 		</array>
 		<key>isOverSSH</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUsePrivateKey</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUseSocket</key>
-		<integer>0</integer>
+		<false/>
 		<key>statusColor</key>
 		<string>#686B6F</string>
 		<key>tLSMode</key>
@@ -157,23 +163,25 @@
 		<key>GroupID</key>
 		<string></string>
 		<key>HideFunctionSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ID</key>
 		<string>8CB91C4D-4345-4D6C-AB68-B22905A3C5D7</string>
 		<key>ItemGroups</key>
 		<array/>
-		<key>LazyLoadItems</key>
-		<integer>0</integer>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
 		<key>LimitQueryRowsReturned</key>
 		<integer>0</integer>
 		<key>LimitRowsReturned</key>
 		<integer>0</integer>
 		<key>OtherOptions</key>
 		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
 		<key>RecentUsedBackupDriverName</key>
 		<string></string>
 		<key>RecentUsedBackupGzip</key>
-		<integer>0</integer>
+		<false/>
 		<key>RecentUsedBackupOptions</key>
 		<array/>
 		<key>RecentUsedRestoreOptions</key>
@@ -199,6 +207,8 @@
 		</dict>
 		<key>ServerAddress</key>
 		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
 		<key>ServerPasswordMode</key>
 		<integer>0</integer>
 		<key>ServerPort</key>
@@ -208,13 +218,15 @@
 		<key>ServerUser</key>
 		<string></string>
 		<key>ShowRecentlySection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSequenceSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSystemSchemas</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowUserDefineSection</key>
-		<integer>0</integer>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
 		<key>StartupCommands</key>
 		<string></string>
 		<key>TlsKeyName</key>
@@ -226,11 +238,11 @@
 			<string></string>
 		</array>
 		<key>isOverSSH</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUsePrivateKey</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUseSocket</key>
-		<integer>0</integer>
+		<false/>
 		<key>statusColor</key>
 		<string>#686B6F</string>
 		<key>tLSMode</key>
@@ -274,23 +286,25 @@
 		<key>GroupID</key>
 		<string></string>
 		<key>HideFunctionSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ID</key>
 		<string>9974A145-33BB-40A8-B990-29F43F9DD821</string>
 		<key>ItemGroups</key>
 		<array/>
-		<key>LazyLoadItems</key>
-		<integer>0</integer>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
 		<key>LimitQueryRowsReturned</key>
 		<integer>0</integer>
 		<key>LimitRowsReturned</key>
 		<integer>0</integer>
 		<key>OtherOptions</key>
 		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
 		<key>RecentUsedBackupDriverName</key>
 		<string></string>
 		<key>RecentUsedBackupGzip</key>
-		<integer>0</integer>
+		<false/>
 		<key>RecentUsedBackupOptions</key>
 		<array/>
 		<key>RecentUsedRestoreOptions</key>
@@ -309,6 +323,8 @@
 		<dict/>
 		<key>ServerAddress</key>
 		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
 		<key>ServerPasswordMode</key>
 		<integer>0</integer>
 		<key>ServerPort</key>
@@ -318,13 +334,15 @@
 		<key>ServerUser</key>
 		<string></string>
 		<key>ShowRecentlySection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSequenceSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSystemSchemas</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowUserDefineSection</key>
-		<integer>0</integer>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
 		<key>StartupCommands</key>
 		<string></string>
 		<key>TlsKeyName</key>
@@ -332,11 +350,11 @@
 		<key>TlsKeyPaths</key>
 		<array/>
 		<key>isOverSSH</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUsePrivateKey</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUseSocket</key>
-		<integer>0</integer>
+		<false/>
 		<key>statusColor</key>
 		<string>#686B6F</string>
 		<key>tLSMode</key>
@@ -380,23 +398,25 @@
 		<key>GroupID</key>
 		<string></string>
 		<key>HideFunctionSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ID</key>
 		<string>D3CFB07F-CF29-4A7A-9098-655F86A5A692</string>
 		<key>ItemGroups</key>
 		<array/>
-		<key>LazyLoadItems</key>
-		<integer>0</integer>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
 		<key>LimitQueryRowsReturned</key>
 		<integer>0</integer>
 		<key>LimitRowsReturned</key>
 		<integer>0</integer>
 		<key>OtherOptions</key>
 		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
 		<key>RecentUsedBackupDriverName</key>
 		<string></string>
 		<key>RecentUsedBackupGzip</key>
-		<integer>0</integer>
+		<false/>
 		<key>RecentUsedBackupOptions</key>
 		<array/>
 		<key>RecentUsedRestoreOptions</key>
@@ -419,6 +439,8 @@
 		</dict>
 		<key>ServerAddress</key>
 		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
 		<key>ServerPasswordMode</key>
 		<integer>0</integer>
 		<key>ServerPort</key>
@@ -428,13 +450,15 @@
 		<key>ServerUser</key>
 		<string></string>
 		<key>ShowRecentlySection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSequenceSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSystemSchemas</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowUserDefineSection</key>
-		<integer>0</integer>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
 		<key>StartupCommands</key>
 		<string></string>
 		<key>TlsKeyName</key>
@@ -446,128 +470,11 @@
 			<string></string>
 		</array>
 		<key>isOverSSH</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUsePrivateKey</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUseSocket</key>
-		<integer>0</integer>
-		<key>statusColor</key>
-		<string>#686B6F</string>
-		<key>tLSMode</key>
-		<integer>0</integer>
-	</dict>
-	<dict>
-		<key>Authenticator</key>
-		<string></string>
-		<key>ConnectionName</key>
-		<string>Caim</string>
-		<key>DatabaseEncoding</key>
-		<string></string>
-		<key>DatabaseHost</key>
-		<string>localhost</string>
-		<key>DatabaseName</key>
-		<string>postgres</string>
-		<key>DatabasePasswordMode</key>
-		<integer>0</integer>
-		<key>DatabasePath</key>
-		<string></string>
-		<key>DatabasePort</key>
-		<string>5434</string>
-		<key>DatabaseSocket</key>
-		<string></string>
-		<key>DatabaseType</key>
-		<string></string>
-		<key>DatabaseUser</key>
-		<string>postgres</string>
-		<key>DatabaseUserRole</key>
-		<string></string>
-		<key>DatabaseWarehouse</key>
-		<string></string>
-		<key>Driver</key>
-		<string>PostgreSQL</string>
-		<key>DriverVersion</key>
-		<integer>0</integer>
-		<key>Enviroment</key>
-		<string>local</string>
-		<key>Favorites</key>
-		<dict/>
-		<key>GroupID</key>
-		<string></string>
-		<key>HideFunctionSection</key>
-		<integer>0</integer>
-		<key>ID</key>
-		<string>0A2C1840-48D8-4FAE-8434-31422576D710</string>
-		<key>ItemGroups</key>
-		<array/>
-		<key>LazyLoadItems</key>
-		<integer>0</integer>
-		<key>LimitQueryRowsReturned</key>
-		<integer>0</integer>
-		<key>LimitRowsReturned</key>
-		<integer>0</integer>
-		<key>OtherOptions</key>
-		<array/>
-		<key>RecentUsedBackupDriverName</key>
-		<string></string>
-		<key>RecentUsedBackupGzip</key>
-		<integer>0</integer>
-		<key>RecentUsedBackupOptions</key>
-		<array/>
-		<key>RecentUsedRestoreOptions</key>
-		<array/>
-		<key>RecentlyOpened</key>
-		<array>
-			<string>postgres.public.caim_base_state</string>
-			<string>postgres.public.auth_permission</string>
-			<string>postgres.public.auth_group</string>
-			<string>postgres.public.auth_group_permissions</string>
-			<string>postgres.public.auth_user_groups</string>
-		</array>
-		<key>RecentlySchema</key>
-		<array>
-			<string>postgres.public</string>
-		</array>
-		<key>SectionStates</key>
-		<dict>
-			<key>postgres.Functions</key>
-			<string>collapsed</string>
-			<key>postgres.Tables</key>
-			<string>expanded</string>
-		</dict>
-		<key>ServerAddress</key>
-		<string>127.0.0.1</string>
-		<key>ServerPasswordMode</key>
-		<integer>0</integer>
-		<key>ServerPort</key>
-		<string>22</string>
-		<key>ServerPrivateKeyName</key>
-		<string>Import a private key...</string>
-		<key>ServerUser</key>
-		<string></string>
-		<key>ShowRecentlySection</key>
-		<integer>0</integer>
-		<key>ShowSequenceSection</key>
-		<integer>0</integer>
-		<key>ShowSystemSchemas</key>
-		<integer>0</integer>
-		<key>ShowUserDefineSection</key>
-		<integer>0</integer>
-		<key>StartupCommands</key>
-		<string></string>
-		<key>TlsKeyName</key>
-		<string>Key...,Cert...,CA Cert...</string>
-		<key>TlsKeyPaths</key>
-		<array>
-			<string></string>
-			<string></string>
-			<string></string>
-		</array>
-		<key>isOverSSH</key>
-		<integer>0</integer>
-		<key>isUsePrivateKey</key>
-		<integer>0</integer>
-		<key>isUseSocket</key>
-		<integer>0</integer>
+		<false/>
 		<key>statusColor</key>
 		<string>#686B6F</string>
 		<key>tLSMode</key>
@@ -611,23 +518,25 @@
 		<key>GroupID</key>
 		<string></string>
 		<key>HideFunctionSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ID</key>
 		<string>D2C10147-7338-4A3C-B45B-15A8AFE3FD85</string>
 		<key>ItemGroups</key>
 		<array/>
-		<key>LazyLoadItems</key>
-		<integer>0</integer>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
 		<key>LimitQueryRowsReturned</key>
 		<integer>0</integer>
 		<key>LimitRowsReturned</key>
 		<integer>0</integer>
 		<key>OtherOptions</key>
 		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
 		<key>RecentUsedBackupDriverName</key>
 		<string></string>
 		<key>RecentUsedBackupGzip</key>
-		<integer>0</integer>
+		<false/>
 		<key>RecentUsedBackupOptions</key>
 		<array/>
 		<key>RecentUsedRestoreOptions</key>
@@ -648,6 +557,8 @@
 		<dict/>
 		<key>ServerAddress</key>
 		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
 		<key>ServerPasswordMode</key>
 		<integer>0</integer>
 		<key>ServerPort</key>
@@ -657,13 +568,15 @@
 		<key>ServerUser</key>
 		<string></string>
 		<key>ShowRecentlySection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSequenceSection</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowSystemSchemas</key>
-		<integer>0</integer>
+		<false/>
 		<key>ShowUserDefineSection</key>
-		<integer>0</integer>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
 		<key>StartupCommands</key>
 		<string></string>
 		<key>TlsKeyName</key>
@@ -671,11 +584,611 @@
 		<key>TlsKeyPaths</key>
 		<array/>
 		<key>isOverSSH</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUsePrivateKey</key>
-		<integer>0</integer>
+		<false/>
 		<key>isUseSocket</key>
+		<false/>
+		<key>statusColor</key>
+		<string>#686B6F</string>
+		<key>tLSMode</key>
 		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>Authenticator</key>
+		<string></string>
+		<key>ConnectionName</key>
+		<string>Grafana Test</string>
+		<key>DatabaseEncoding</key>
+		<string></string>
+		<key>DatabaseHost</key>
+		<string>ep-red-union-629055.us-east-2.aws.neon.tech</string>
+		<key>DatabaseName</key>
+		<string>grafana-test</string>
+		<key>DatabasePasswordMode</key>
+		<integer>0</integer>
+		<key>DatabasePath</key>
+		<string></string>
+		<key>DatabasePort</key>
+		<string>5432</string>
+		<key>DatabaseSocket</key>
+		<string></string>
+		<key>DatabaseType</key>
+		<string></string>
+		<key>DatabaseUser</key>
+		<string>rwwiv</string>
+		<key>DatabaseUserRole</key>
+		<string></string>
+		<key>DatabaseWarehouse</key>
+		<string></string>
+		<key>Driver</key>
+		<string>PostgreSQL</string>
+		<key>DriverVersion</key>
+		<integer>0</integer>
+		<key>Enviroment</key>
+		<string>local</string>
+		<key>Favorites</key>
+		<dict/>
+		<key>GroupID</key>
+		<string></string>
+		<key>HideFunctionSection</key>
+		<false/>
+		<key>ID</key>
+		<string>C1908E22-E342-4240-A012-A7E6F4B288C5</string>
+		<key>ItemGroups</key>
+		<array/>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
+		<key>LimitQueryRowsReturned</key>
+		<integer>0</integer>
+		<key>LimitRowsReturned</key>
+		<integer>0</integer>
+		<key>OtherOptions</key>
+		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
+		<key>RecentUsedBackupDriverName</key>
+		<string></string>
+		<key>RecentUsedBackupGzip</key>
+		<false/>
+		<key>RecentUsedBackupOptions</key>
+		<array/>
+		<key>RecentUsedRestoreOptions</key>
+		<array/>
+		<key>RecentlyOpened</key>
+		<array>
+			<string>grafana-test.public.device_cpu_usage</string>
+		</array>
+		<key>RecentlySchema</key>
+		<array>
+			<string>grafana-test.public</string>
+		</array>
+		<key>SectionStates</key>
+		<dict>
+			<key>grafana-test.Functions</key>
+			<string>expanded</string>
+			<key>grafana-test.Tables</key>
+			<string>expanded</string>
+		</dict>
+		<key>ServerAddress</key>
+		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
+		<key>ServerPasswordMode</key>
+		<integer>0</integer>
+		<key>ServerPort</key>
+		<string>22</string>
+		<key>ServerPrivateKeyName</key>
+		<string>Import a private key...</string>
+		<key>ServerUser</key>
+		<string></string>
+		<key>ShowRecentlySection</key>
+		<false/>
+		<key>ShowSequenceSection</key>
+		<false/>
+		<key>ShowSystemSchemas</key>
+		<false/>
+		<key>ShowUserDefineSection</key>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
+		<key>StartupCommands</key>
+		<string></string>
+		<key>TlsKeyName</key>
+		<string>Key...,Cert...,CA Cert...</string>
+		<key>TlsKeyPaths</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>isOverSSH</key>
+		<false/>
+		<key>isUsePrivateKey</key>
+		<false/>
+		<key>isUseSocket</key>
+		<false/>
+		<key>statusColor</key>
+		<string>#686B6F</string>
+		<key>tLSMode</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>Authenticator</key>
+		<string></string>
+		<key>ConnectionName</key>
+		<string>Grafana</string>
+		<key>DatabaseEncoding</key>
+		<string></string>
+		<key>DatabaseHost</key>
+		<string>localhost</string>
+		<key>DatabaseName</key>
+		<string>grafana</string>
+		<key>DatabasePasswordMode</key>
+		<integer>0</integer>
+		<key>DatabasePath</key>
+		<string></string>
+		<key>DatabasePort</key>
+		<string>5432</string>
+		<key>DatabaseSocket</key>
+		<string></string>
+		<key>DatabaseType</key>
+		<string></string>
+		<key>DatabaseUser</key>
+		<string>grafana</string>
+		<key>DatabaseUserRole</key>
+		<string></string>
+		<key>DatabaseWarehouse</key>
+		<string></string>
+		<key>Driver</key>
+		<string>PostgreSQL</string>
+		<key>DriverVersion</key>
+		<integer>0</integer>
+		<key>Enviroment</key>
+		<string>local</string>
+		<key>Favorites</key>
+		<dict/>
+		<key>GroupID</key>
+		<string></string>
+		<key>HideFunctionSection</key>
+		<false/>
+		<key>ID</key>
+		<string>B4DF4DD8-8F37-4C52-8B9E-74AB75BECA07</string>
+		<key>ItemGroups</key>
+		<array/>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
+		<key>LimitQueryRowsReturned</key>
+		<integer>0</integer>
+		<key>LimitRowsReturned</key>
+		<integer>1000</integer>
+		<key>OtherOptions</key>
+		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
+		<key>RecentUsedBackupDriverName</key>
+		<string></string>
+		<key>RecentUsedBackupGzip</key>
+		<false/>
+		<key>RecentUsedBackupOptions</key>
+		<array/>
+		<key>RecentUsedRestoreOptions</key>
+		<array/>
+		<key>RecentlyOpened</key>
+		<array>
+			<string>grafana.public.data_source</string>
+			<string>grafana.public.alert_rule_tag</string>
+			<string>grafana.public.folder</string>
+			<string>grafana.public.alert_rule_state</string>
+			<string>grafana.public.alert_rule</string>
+		</array>
+		<key>RecentlySchema</key>
+		<array>
+			<string>rwwiv.public</string>
+			<string>grafana.public</string>
+		</array>
+		<key>SectionStates</key>
+		<dict>
+			<key>grafana.Functions</key>
+			<string>expanded</string>
+			<key>grafana.Tables</key>
+			<string>expanded</string>
+			<key>rwwiv.Functions</key>
+			<string>expanded</string>
+			<key>rwwiv.Tables</key>
+			<string>expanded</string>
+		</dict>
+		<key>ServerAddress</key>
+		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
+		<key>ServerPasswordMode</key>
+		<integer>0</integer>
+		<key>ServerPort</key>
+		<string>22</string>
+		<key>ServerPrivateKeyName</key>
+		<string>Import a private key...</string>
+		<key>ServerUser</key>
+		<string></string>
+		<key>ShowRecentlySection</key>
+		<false/>
+		<key>ShowSequenceSection</key>
+		<false/>
+		<key>ShowSystemSchemas</key>
+		<false/>
+		<key>ShowUserDefineSection</key>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
+		<key>StartupCommands</key>
+		<string></string>
+		<key>TlsKeyName</key>
+		<string>Key...,Cert...,CA Cert...</string>
+		<key>TlsKeyPaths</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>isOverSSH</key>
+		<false/>
+		<key>isUsePrivateKey</key>
+		<false/>
+		<key>isUseSocket</key>
+		<false/>
+		<key>statusColor</key>
+		<string>#686B6F</string>
+		<key>tLSMode</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>Authenticator</key>
+		<string></string>
+		<key>ConnectionName</key>
+		<string>Grafana (MyQSL)</string>
+		<key>DatabaseEncoding</key>
+		<string></string>
+		<key>DatabaseHost</key>
+		<string>127.0.0.1</string>
+		<key>DatabaseName</key>
+		<string>grafana</string>
+		<key>DatabasePasswordMode</key>
+		<integer>0</integer>
+		<key>DatabasePath</key>
+		<string></string>
+		<key>DatabasePort</key>
+		<string>3306</string>
+		<key>DatabaseSocket</key>
+		<string></string>
+		<key>DatabaseType</key>
+		<string></string>
+		<key>DatabaseUser</key>
+		<string>grafana</string>
+		<key>DatabaseUserRole</key>
+		<string></string>
+		<key>DatabaseWarehouse</key>
+		<string></string>
+		<key>Driver</key>
+		<string>MySQL</string>
+		<key>DriverVersion</key>
+		<integer>0</integer>
+		<key>Enviroment</key>
+		<string>local</string>
+		<key>Favorites</key>
+		<dict/>
+		<key>GroupID</key>
+		<string></string>
+		<key>HideFunctionSection</key>
+		<false/>
+		<key>ID</key>
+		<string>CA76121C-6037-4E17-AEA1-1E6A0F32EB11</string>
+		<key>ItemGroups</key>
+		<array/>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
+		<key>LimitQueryRowsReturned</key>
+		<integer>0</integer>
+		<key>LimitRowsReturned</key>
+		<integer>0</integer>
+		<key>OtherOptions</key>
+		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
+		<key>RecentUsedBackupDriverName</key>
+		<string></string>
+		<key>RecentUsedBackupGzip</key>
+		<false/>
+		<key>RecentUsedBackupOptions</key>
+		<array/>
+		<key>RecentUsedRestoreOptions</key>
+		<array/>
+		<key>RecentlyOpened</key>
+		<array>
+			<string>grafana.grafana.alert_configuration</string>
+			<string>grafana.grafana.alert_configuration_history</string>
+			<string>grafana.grafana.alert_image</string>
+			<string>grafana.grafana.alert_instance</string>
+			<string>grafana.grafana.alert_notification</string>
+		</array>
+		<key>RecentlySchema</key>
+		<array>
+			<string>grafana.grafana</string>
+		</array>
+		<key>SectionStates</key>
+		<dict>
+			<key>grafana.Functions</key>
+			<string>expanded</string>
+			<key>grafana.Tables</key>
+			<string>expanded</string>
+		</dict>
+		<key>ServerAddress</key>
+		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
+		<key>ServerPasswordMode</key>
+		<integer>0</integer>
+		<key>ServerPort</key>
+		<string>22</string>
+		<key>ServerPrivateKeyName</key>
+		<string>Import a private key...</string>
+		<key>ServerUser</key>
+		<string></string>
+		<key>ShowRecentlySection</key>
+		<false/>
+		<key>ShowSequenceSection</key>
+		<false/>
+		<key>ShowSystemSchemas</key>
+		<false/>
+		<key>ShowUserDefineSection</key>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
+		<key>StartupCommands</key>
+		<string></string>
+		<key>TlsKeyName</key>
+		<string>Key...,Cert...,CA Cert...</string>
+		<key>TlsKeyPaths</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>isOverSSH</key>
+		<false/>
+		<key>isUsePrivateKey</key>
+		<false/>
+		<key>isUseSocket</key>
+		<false/>
+		<key>statusColor</key>
+		<string>#686B6F</string>
+		<key>tLSMode</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>Authenticator</key>
+		<string></string>
+		<key>ConnectionName</key>
+		<string>Grafana sqlite</string>
+		<key>DatabaseEncoding</key>
+		<string></string>
+		<key>DatabaseHost</key>
+		<string>/Users/rwwiv/Developer/grafana/data/grafana.db</string>
+		<key>DatabaseName</key>
+		<string>grafana.db</string>
+		<key>DatabasePasswordMode</key>
+		<integer>0</integer>
+		<key>DatabasePath</key>
+		<string>/Users/rwwiv/Developer/grafana/data/grafana.db</string>
+		<key>DatabasePort</key>
+		<string>5432</string>
+		<key>DatabaseSocket</key>
+		<string></string>
+		<key>DatabaseType</key>
+		<string></string>
+		<key>DatabaseUser</key>
+		<string></string>
+		<key>DatabaseUserRole</key>
+		<string></string>
+		<key>DatabaseWarehouse</key>
+		<string></string>
+		<key>Driver</key>
+		<string>SQLite</string>
+		<key>DriverVersion</key>
+		<integer>0</integer>
+		<key>Enviroment</key>
+		<string>local</string>
+		<key>Favorites</key>
+		<dict/>
+		<key>GroupID</key>
+		<string></string>
+		<key>HideFunctionSection</key>
+		<false/>
+		<key>ID</key>
+		<string>A9B2A4D8-246D-409F-83DF-E9C58EA7FE1D</string>
+		<key>ItemGroups</key>
+		<array/>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
+		<key>LimitQueryRowsReturned</key>
+		<integer>0</integer>
+		<key>LimitRowsReturned</key>
+		<integer>0</integer>
+		<key>OtherOptions</key>
+		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
+		<key>RecentUsedBackupDriverName</key>
+		<string></string>
+		<key>RecentUsedBackupGzip</key>
+		<false/>
+		<key>RecentUsedBackupOptions</key>
+		<array/>
+		<key>RecentUsedRestoreOptions</key>
+		<array/>
+		<key>RecentlyOpened</key>
+		<array/>
+		<key>RecentlySchema</key>
+		<array/>
+		<key>SectionStates</key>
+		<dict/>
+		<key>ServerAddress</key>
+		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
+		<key>ServerPasswordMode</key>
+		<integer>0</integer>
+		<key>ServerPort</key>
+		<string>22</string>
+		<key>ServerPrivateKeyName</key>
+		<string>Import...</string>
+		<key>ServerUser</key>
+		<string></string>
+		<key>ShowRecentlySection</key>
+		<false/>
+		<key>ShowSequenceSection</key>
+		<false/>
+		<key>ShowSystemSchemas</key>
+		<false/>
+		<key>ShowUserDefineSection</key>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
+		<key>StartupCommands</key>
+		<string></string>
+		<key>TlsKeyName</key>
+		<string></string>
+		<key>TlsKeyPaths</key>
+		<array/>
+		<key>isOverSSH</key>
+		<false/>
+		<key>isUsePrivateKey</key>
+		<false/>
+		<key>isUseSocket</key>
+		<false/>
+		<key>statusColor</key>
+		<string>#686B6F</string>
+		<key>tLSMode</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>Authenticator</key>
+		<string></string>
+		<key>ConnectionName</key>
+		<string>Grafana Testing</string>
+		<key>DatabaseEncoding</key>
+		<string></string>
+		<key>DatabaseHost</key>
+		<string>127.0.0.1</string>
+		<key>DatabaseName</key>
+		<string>grafanadstest</string>
+		<key>DatabasePasswordMode</key>
+		<integer>0</integer>
+		<key>DatabasePath</key>
+		<string></string>
+		<key>DatabasePort</key>
+		<string>5432</string>
+		<key>DatabaseSocket</key>
+		<string></string>
+		<key>DatabaseType</key>
+		<string></string>
+		<key>DatabaseUser</key>
+		<string>grafanatest</string>
+		<key>DatabaseUserRole</key>
+		<string></string>
+		<key>DatabaseWarehouse</key>
+		<string></string>
+		<key>Driver</key>
+		<string>PostgreSQL</string>
+		<key>DriverVersion</key>
+		<integer>0</integer>
+		<key>Enviroment</key>
+		<string>local</string>
+		<key>Favorites</key>
+		<dict/>
+		<key>GroupID</key>
+		<string></string>
+		<key>HideFunctionSection</key>
+		<false/>
+		<key>ID</key>
+		<string>3BCB742C-73A9-4C82-8B67-6D9F4ADAA68F</string>
+		<key>ItemGroups</key>
+		<array/>
+		<key>LazyLoadSchemaItems</key>
+		<false/>
+		<key>LimitQueryRowsReturned</key>
+		<integer>0</integer>
+		<key>LimitRowsReturned</key>
+		<integer>0</integer>
+		<key>OtherOptions</key>
+		<array/>
+		<key>RecentAIChatHistory</key>
+		<string></string>
+		<key>RecentUsedBackupDriverName</key>
+		<string></string>
+		<key>RecentUsedBackupGzip</key>
+		<false/>
+		<key>RecentUsedBackupOptions</key>
+		<array/>
+		<key>RecentUsedRestoreOptions</key>
+		<array/>
+		<key>RecentlyOpened</key>
+		<array>
+			<string>grafanatest.public.alert_rule</string>
+		</array>
+		<key>RecentlySchema</key>
+		<array>
+			<string>grafanadstest.public</string>
+			<string>grafanatest.public</string>
+		</array>
+		<key>SectionStates</key>
+		<dict>
+			<key>grafanadstest.Functions</key>
+			<string>expanded</string>
+			<key>grafanadstest.Tables</key>
+			<string>expanded</string>
+			<key>grafanatest.Functions</key>
+			<string>expanded</string>
+			<key>grafanatest.Tables</key>
+			<string>expanded</string>
+		</dict>
+		<key>ServerAddress</key>
+		<string>127.0.0.1</string>
+		<key>ServerNameIndication</key>
+		<string></string>
+		<key>ServerPasswordMode</key>
+		<integer>0</integer>
+		<key>ServerPort</key>
+		<string>22</string>
+		<key>ServerPrivateKeyName</key>
+		<string>Import a private key...</string>
+		<key>ServerUser</key>
+		<string></string>
+		<key>ShowRecentlySection</key>
+		<false/>
+		<key>ShowSequenceSection</key>
+		<false/>
+		<key>ShowSystemSchemas</key>
+		<false/>
+		<key>ShowUserDefineSection</key>
+		<false/>
+		<key>StartupBashScript</key>
+		<string></string>
+		<key>StartupCommands</key>
+		<string></string>
+		<key>TlsKeyName</key>
+		<string>Key...,Cert...,CA Cert...</string>
+		<key>TlsKeyPaths</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>isOverSSH</key>
+		<false/>
+		<key>isUsePrivateKey</key>
+		<false/>
+		<key>isUseSocket</key>
+		<false/>
 		<key>statusColor</key>
 		<string>#686B6F</string>
 		<key>tLSMode</key>

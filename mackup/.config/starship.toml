@@ -10,6 +10,7 @@ $git_branch\
 $git_metrics\
 $git_status\
 $fill\
+$nodejs\
 $golang\
 $rust\
 $c\
@@ -68,7 +69,7 @@ version_format = "${raw}"
 format = " [$symbol($version)]($style)"
 symbol = "䨹"
 style = "bold 208"
-disable = false
+disabled = false
 
 [package]
 format = " [$symbol$version]($style) "
@@ -95,9 +96,7 @@ symbol = "銹"
 
 [c]
 format = " [$symbol($version)]($style)"
-commands = [
-    [ 'clang', '--version' ]
-]
+commands = [['clang', '--version']]
 
 [cmd_duration]
 format = "[$duration]($style) "
@@ -121,9 +120,8 @@ success_symbol = "[❯](bold) "
 format = "[$time]($style)"
 use_12hr = true
 time_format = "%l:%M %p"
-style="bold gray"
+style = "bold gray"
 disabled = false
 
 [fill]
 symbol = " "
-

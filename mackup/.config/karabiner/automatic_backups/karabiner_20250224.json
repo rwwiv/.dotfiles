@@ -1,25 +1,8 @@
 {
-    "machine_specific": { "krbn-033f9272-1ecd-4c5b-89a5-291d2688a17a": { "enable_multitouch_extension": true } },
     "profiles": [
         {
             "complex_modifications": {
                 "rules": [
-                    {
-                        "description": "Caps Lock → Hyper Key (⌃⌥⇧⌘) (Caps Lock if alone)",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "caps_lock" },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": ["left_command", "left_control", "left_option"]
-                                    }
-                                ],
-                                "to_if_alone": [{ "key_code": "caps_lock" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
                     {
                         "description": "RWWIV - PC-Style Home/End",
                         "manipulators": [
@@ -319,45 +302,75 @@
             },
             "devices": [
                 {
-                    "disable_built_in_keyboard_if_exists": true,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 62,
-                        "vendor_id": 65534
-                    }
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": true,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 591,
-                        "vendor_id": 1452
-                    }
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 62728,
-                        "vendor_id": 13652
-                    },
-                    "ignore": true
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": true,
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": true,
-                        "product_id": 62,
-                        "vendor_id": 65534
+                        "product_id": 20548,
+                        "vendor_id": 12815
                     },
                     "ignore": false
                 },
                 {
                     "identifiers": {
                         "is_keyboard": true,
+                        "product_id": 34304,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 5914,
+                        "vendor_id": 4152
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 835,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 16641,
+                        "vendor_id": 1578
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 834,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 6190,
+                        "vendor_id": 4152
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
                         "is_pointing_device": true,
-                        "product_id": 20565,
-                        "vendor_id": 12815
+                        "product_id": 62,
+                        "vendor_id": 65534
                     },
                     "ignore": false
                 }
